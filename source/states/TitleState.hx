@@ -1,6 +1,7 @@
 package states;
 
 import backend.WeekData;
+import backend.ScreenshotPlugin;
 
 import flixel.input.keyboard.FlxKey;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -122,6 +123,9 @@ class TitleState extends MusicBeatState
 
 		if(!initialized)
 		{
+			//* FIRST INIT! INITIALISE IMPORTED PLUGINS
+			ScreenshotPlugin.initialize();
+
 			if(FlxG.save.data != null && FlxG.save.data.fullscreen)
 			{
 				FlxG.fullscreen = FlxG.save.data.fullscreen;

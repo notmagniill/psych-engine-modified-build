@@ -4,7 +4,8 @@ package;
 import android.content.Context;
 #end
 
-import debug.FPSCounter;
+//import debug.FPSCounter;
+import debug.PEMDFramerate;
 
 import flixel.graphics.FlxGraphic;
 import flixel.FlxGame;
@@ -50,7 +51,15 @@ class Main extends Sprite
 		startFullscreen: false // if the game should start at fullscreen mode
 	};
 
-	public static var fpsVar:FPSCounter;
+	/*public static var fpsVar:FPSCounter;
+	public static var fpsSmol:FPSSmall;
+	public static var memPeak:MEMPeak;
+	public static var memVar:MEMCounter;
+	public static var pemdInfo:PEMDInfo;*/
+
+	public static var pemdFPS:PEMDFramerate;
+
+	public static var fontName:String = #if windows '${Sys.getEnv("windir")}\\Fonts\\consola.ttf' #else "_sans" #end;
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -123,13 +132,27 @@ class Main extends Sprite
 		addChild(new FlxGame(game.width, game.height, game.initialState, #if (flixel < "5.0.0") game.zoom, #end game.framerate, game.framerate, game.skipSplash, game.startFullscreen));
 
 		#if !mobile
-		fpsVar = new FPSCounter(10, 3, 0xFFFFFF);
+		/*fpsVar = new FPSCounter(10, 3, 0xFFFFFF, fontName);
 		addChild(fpsVar);
+		fpsSmol = new FPSSmall(43, 9, 0xFFFFFF, fontName);
+		addChild(fpsSmol);
+		memPeak = new MEMPeak(10, 28, 0xFFBDBDBD, fontName);
+		addChild(memPeak);
+		memVar = new MEMCounter(10, 28, 0xFFFFFF, fontName);
+		addChild(memVar);*/
+		pemdFPS = new PEMDFramerate(0, 0, fontName);
+		addChild(pemdFPS);
 		Lib.current.stage.align = "tl";
 		Lib.current.stage.scaleMode = StageScaleMode.NO_SCALE;
-		if(fpsVar != null) {
+		if(pemdFPS != null) {
+			pemdFPS.visible = ClientPrefs.data.showFPS;
+		}
+		/*if(fpsVar != null) {
 			fpsVar.visible = ClientPrefs.data.showFPS;
 		}
+		if(fpsSmol != null) {
+			fpsSmol.visible = ClientPrefs.data.showFPS;
+		}*/
 		#end
 
 		#if linux
