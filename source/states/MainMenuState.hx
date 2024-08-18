@@ -15,6 +15,7 @@ enum MainMenuColumn {
 class MainMenuState extends MusicBeatState
 {
 	public static var psychEngineVersion:String = '1.0b'; // This is also used for Discord RPC
+	public static var fakePEVersion:String = '0.6.3';
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = CENTER;
 	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
@@ -27,7 +28,7 @@ class MainMenuState extends MusicBeatState
 	var optionShit:Array<String> = [
 		'story_mode',
 		'freeplay',
-		#if MODS_ALLOWED 'mods', #end
+		//#if MODS_ALLOWED 'mods', #end
 		'credits'
 	];
 
@@ -91,13 +92,24 @@ class MainMenuState extends MusicBeatState
 			rightItem.x -= rightItem.width;
 		}
 
-		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + psychEngineVersion, 12);
+		var pemdVer:FlxText;
+		if(Main.CURRENTLY_BETA)
+			pemdVer = new FlxText(12, FlxG.height - 64, 0, "Psych Engine Modified Build v" + Main.pemdVer + 'b', 12);
+		else
+			pemdVer = new FlxText(12, FlxG.height - 64, 0, "Psych Engine Modified Build v" + Main.pemdVer, 12);
+		pemdVer.scrollFactor.set();
+		pemdVer.screenCenter(X);
+		pemdVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		add(pemdVer);
+		var psychVer:FlxText = new FlxText(12, FlxG.height - 44, 0, "Psych Engine v" + fakePEVersion, 12);
 		psychVer.scrollFactor.set();
-		psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		psychVer.screenCenter(X);
+		psychVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(psychVer);
 		var fnfVer:FlxText = new FlxText(12, FlxG.height - 24, 0, "Friday Night Funkin' v" + Application.current.meta.get('version'), 12);
 		fnfVer.scrollFactor.set();
-		fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		fnfVer.screenCenter(X);
+		fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
 		changeItem();
 

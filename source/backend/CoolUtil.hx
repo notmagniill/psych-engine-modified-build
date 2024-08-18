@@ -155,4 +155,50 @@ class CoolUtil
 				text.borderStyle = NONE;
 		}
 	}
+
+	inline public static function saveMessage(fileName:String, folderName:String, fileType:String = 'TEXT', message:String)
+	{
+		var path:String;
+
+		var convertedFileType:String = "txt";
+
+		switch(fileType)
+		{
+			case 'NOTE':
+				convertedFileType = 'oldnote';
+			case 'GIBBERISH1':
+				convertedFileType = 'OsiVb';
+			case 'GIBBERISH2':
+				convertedFileType = 'EuFhr';
+			case 'GIBBERISH3':
+				convertedFileType = '4gI5H';
+			case 'GIBBERISH4':
+				convertedFileType = 'GTInU';
+			case 'HELP':
+				convertedFileType = 'help';
+			default:
+				convertedFileType = 'txt';
+		}
+
+		path = "./" + folderName + "/" + fileName + "." + convertedFileType;
+
+		if (!FileSystem.exists("./" + folderName +"/"))
+			FileSystem.createDirectory("./" + folderName + "/");
+
+		File.saveContent(path, message + "\n");
+	}
+
+	inline public static function addWeek(weekName:String, contents:String)
+	{
+		var path:String;
+
+		path = "./assets/shared/weeks" + weekName + ".json";
+
+		File.saveContent(path, contents);
+	}
+
+	inline public static function deleteWeek(weekName:String)
+	{
+		FileSystem.deleteFile(Paths.weekString(weekName));
+	}
 }

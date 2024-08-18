@@ -323,6 +323,7 @@ class PhillyStreets extends BaseStage
 		cutsceneHandler.timer(cutsceneDelay + 5.1, function() //pico fires at can
 		{
 			boyfriend.playAnim('intro2', true);
+			boyfriend.specialAnim = true;
 
 			FlxG.sound.play(Paths.soundRandom('shot', 1, 4));
 

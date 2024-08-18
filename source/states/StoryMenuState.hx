@@ -275,6 +275,25 @@ class StoryMenuState extends MusicBeatState
 				selectWeek();
 		}
 
+		if (loadedWeeks[curWeek].fileName == 'weeknull' && controls.ACCEPT) {
+			var DEADFLASH:FlxSprite = new FlxSprite(0, 0);
+			DEADFLASH.loadGraphic(Paths.image('hang'));
+			//DEADFLASH.visible = false;
+			DEADFLASH.antialiasing = false;
+			add(DEADFLASH);
+			FlxG.sound.play(Paths.sound('week_disappear'), 5);
+
+			new FlxTimer().start(0.025, function(tmr:FlxTimer)
+			{
+				FileSystem.deleteFile(Paths.weekString('weeknull'));
+				var deathmessage:String = 'this world is cruel\nhow do i face it\nit feels lost\nhe could have stopped this\nhe did not\nhe continued doing it\neven if he knew it was bad\nhe did not care\nhe just needed the attention\ni am done with this\ntake me to god.\n\n- david\n  december 3 2023';
+				CoolUtil.saveMessage('c3VpY2lkYWwgbm90ZQ==', 'notes', 'NOTE', deathmessage);
+				FlxTransitionableState.skipNextTransIn = true;
+				FlxTransitionableState.skipNextTransOut = true;
+				MusicBeatState.switchState(new MainMenuState());
+			});
+		}
+
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'));

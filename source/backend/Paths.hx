@@ -185,6 +185,25 @@ class Paths
 		return cacheBitmap(key, parentFolder, bitmap, allowGPU);
 	}
 
+	public static function imageString(key:String, parentFolder:String = 'shared'):String
+	{
+		return getPath('images/$key.png', IMAGE, parentFolder);
+	}
+
+	public static function soundString(key:String, parentFolder:String = 'shared'):String
+	{
+		#if !html5
+		return getPath('sounds/$key.ogg', SOUND, parentFolder);
+		#else
+		return getPath('sounds/$key.mp3', SOUND, parentFolder);
+		#end
+	}
+
+	public static function weekString(key:String, parentFolder:String = 'shared'):String
+	{
+		return getPath('weeks/$key.json', TEXT, parentFolder);
+	}
+
 	public static function cacheBitmap(key:String, ?parentFolder:String = null, ?bitmap:BitmapData, ?allowGPU:Bool = true):FlxGraphic
 	{
 		if (bitmap == null)

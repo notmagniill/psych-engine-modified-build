@@ -65,6 +65,7 @@
 	
 	<!-- Turn on Crash Handler -->
 	<define name="CRASH_HANDLER" if="desktop release" />
+	<define name="META_HORROR"   if="desktop release" />
 
 	<!-- Assets -->
 	<assets path="assets/fonts" />
