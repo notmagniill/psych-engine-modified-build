@@ -1,4 +1,6 @@
+<center>
 <img src="pemdLogo.png" width="701">
+</center>
 
 # Friday Night Funkin' - Psych Engine Modified Build
 Engine intended to be an improvement of Psych Engine aiming with more accessibilty.
