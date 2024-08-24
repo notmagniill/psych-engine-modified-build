@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="FACES.png">
+    <SubTexture name="the smile on their faces0000" x="1007" y="647" width="864" height="590" frameX="-129" frameY="-47" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="the smile on their faces0001" x="1119" y="0" width="1078" height="641" frameX="-80" frameY="-47" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="the smile on their faces0002" x="1007" y="647" width="864" height="590" frameX="-129" frameY="-47" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="the smile on their faces0003" x="0" y="647" width="1007" height="604" frameX="-94" frameY="-51" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="the smile on their faces0004" x="0" y="0" width="1119" height="647" frameX="-118" frameY="-21" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="the smile on their faces0005" x="1007" y="647" width="864" height="590" frameX="-129" frameY="-47" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="the smile on their faces0006" x="0" y="647" width="1007" height="604" frameX="-94" frameY="-51" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

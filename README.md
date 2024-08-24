@@ -1,3 +1,18 @@
+# Friday Night Funkin' - Psych Engine Modified Build
+Engine intended to be an improvement of Psych Engine aiming with more accessibilty.
+
+## Credits
+### Original Developers
+* Richard Newman (rickYeah) - Main Programmer
+* Ashley Scarlet (ashley4.) - Main Animator
+* Eric Lawrence (squekz) - Main Artist
+### Restoration Team
+* ▉▉▉▉▉▉▉▉▉▉ (notmagniill) - Main Code/Art/Animation Restorer
+* Scott (SMB-5) - Code Restorer
+
+## Special Thanks
+* Psych Engine Developers and Contributors (Scroll down to view Psych Engine Developers credits)
+
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
 

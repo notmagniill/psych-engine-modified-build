@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="LIES.png">
+    <SubTexture name="text shake0000" x="0" y="0" width="637" height="720" frameX="-8" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0001" x="637" y="0" width="639" height="720" frameX="-8" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0002" x="1276" y="0" width="638" height="720" frameX="-7" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0003" x="0" y="720" width="640" height="720" frameX="-8" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0004" x="640" y="720" width="638" height="720" frameX="-7" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0005" x="1914" y="0" width="641" height="720" frameX="-8" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0006" x="1914" y="720" width="640" height="720" frameX="-8" frameY="0" frameWidth="1280" frameHeight="720" />
+    <SubTexture name="text shake0007" x="0" y="1440" width="639" height="720" frameX="-6" frameY="0" frameWidth="1280" frameHeight="720" />
+</TextureAtlas>

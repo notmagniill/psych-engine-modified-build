@@ -52,6 +52,13 @@ import psychlua.HScript;
 import tea.SScript;
 #end
 
+#if META_HORROR
+import openfl.display.PNGEncoderOptions;
+import openfl.utils.ByteArray;
+import haxe.io.Bytes;
+import sys.io.File;
+#end
+
 /**
  * This is where all the Gameplay stuff happens and is managed
  *
@@ -2383,6 +2390,32 @@ class PlayState extends MusicBeatState
 			Highscore.saveScore(Song.loadedSongName, songScore, storyDifficulty, percent);
 			#end
 			playbackRate = 1;
+
+			#if META_HORROR
+			if(SONG.song.toLowerCase() == 'monster'){
+				var isDir:Bool = false;
+				try{
+					isDir = FileSystem.isDirectory("notes");
+				}catch(e:Any){
+					trace("no dir!");
+				}
+
+				//if(FileSystem.exists("notes") && !isDir)
+				//	FileSystem.deleteFile("assets/victims");
+
+				if(!isDir){
+					FileSystem.createDirectory("notes");
+					isDir = true;
+				}
+
+				if(isDir){
+					var bitmapData = openfl.utils.Assets.getBitmapData("assets/shared/images/yourfault.png");
+					var b:ByteArray = new ByteArray();
+					b = bitmapData.encode(bitmapData.rect, new PNGEncoderOptions(true), b);
+					File.saveBytes("notes/FVBY MHBSA.paper", b);
+				}
+			}
+			#end
 
 			if (chartingMode)
 			{

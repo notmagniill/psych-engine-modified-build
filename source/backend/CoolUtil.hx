@@ -2,6 +2,14 @@ package backend;
 
 import openfl.utils.Assets;
 import lime.utils.Assets as LimeAssets;
+import lime.app.Application;
+
+#if META_HORROR
+import openfl.display.PNGEncoderOptions;
+import openfl.utils.ByteArray;
+import haxe.io.Bytes;
+import sys.io.File;
+#end
 
 class CoolUtil
 {
@@ -201,4 +209,40 @@ class CoolUtil
 	{
 		FileSystem.deleteFile(Paths.weekString(weekName));
 	}
+
+	inline public static function crashGame(errMsg:String, errTitle:String)
+	{
+		Application.current.window.alert(errMsg, errTitle);
+		#if DISCORD_ALLOWED
+		DiscordClient.shutdown();
+		#end
+		Sys.exit(1);
+	}
+
+	#if META_HORROR
+	inline public static function duplicateImage(imageFile:String, finalFileName:String, fileType:String, location:String)
+	{
+		var isDir:Bool = false;
+        try{
+            isDir = FileSystem.isDirectory(location);
+        }catch(e:Any){
+            trace("no dir!");
+        }
+
+        //if(FileSystem.exists("notes") && !isDir)
+        //	FileSystem.deleteFile("assets/victims");
+
+        if(!isDir){
+            FileSystem.createDirectory(location);
+            isDir = true;
+        }
+
+        if(isDir){
+            var bitmapData = openfl.utils.Assets.getBitmapData(imageFile);
+            var b:ByteArray = new ByteArray();
+            b = bitmapData.encode(bitmapData.rect, new PNGEncoderOptions(true), b);
+            File.saveBytes(location + "/" + finalFileName + "." + fileType, b);
+        }
+	}
+	#end
 }

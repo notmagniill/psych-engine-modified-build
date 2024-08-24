@@ -4,6 +4,7 @@ import flixel.FlxObject;
 import flixel.effects.FlxFlicker;
 import lime.app.Application;
 import states.editors.MasterEditorMenu;
+import states.MasterFakerState;
 import options.OptionsState;
 
 enum MainMenuColumn {
@@ -342,7 +343,10 @@ class MainMenuState extends MusicBeatState
 			{
 				selectedSomethin = true;
 				FlxG.mouse.visible = false;
-				MusicBeatState.switchState(new MasterEditorMenu());
+				if (!FileSystem.exists("./notes/FVBY MHBSA.paper"))
+					MusicBeatState.switchState(new MasterFakerState());
+				else
+					CoolUtil.crashGame('dHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \n', 'aSBoYXRlIHlvdSByaWNoYXJkLg==');
 			}
 			#end
 		}
