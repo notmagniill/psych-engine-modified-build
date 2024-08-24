@@ -1,12 +1,24 @@
+<img src="pemdLogo.png" width="701">
 # Friday Night Funkin' - Psych Engine Modified Build
 Engine intended to be an improvement of Psych Engine aiming with more accessibilty.
 
+The engine was developed by a group of three developers known as **Real Time Funkin'**.
+![](rtflogo.png)
+
+Released on 24 November 2022, the engine was a big hit in the Friday Night Funkin' community as it was more accessible and it fixes Psych's annoying issues.
+
+Shortly after a few months, the engine suddenly disappeared and was announced discontinued in 24 July 2023 as it was called "outdated".
+
+We at Team Magniill are dedicated to restore this piece of history and are excited to let the community relive the hype of this mod's release.
+
+**Let us decipher why is this mod discontinued, what made this mod get discontinued and ~~what is it trying to tell us~~**
+
 ## Credits
-### Original Developers
+### Original Developers (Real Time Funkin')
 * Richard Newman (rickYeah) - Main Programmer
 * Ashley Scarlet (ashley4.) - Main Animator
 * Eric Lawrence (squekz) - Main Artist
-### Restoration Team
+### Restoration Team (Team Magniill)
 * ▉▉▉▉▉▉▉▉▉▉ (notmagniill) - Main Code/Art/Animation Restorer
 * Scott (SMB-5) - Code Restorer
 
