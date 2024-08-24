@@ -1,4 +1,5 @@
 <img src="pemdLogo.png" width="701">
+
 # Friday Night Funkin' - Psych Engine Modified Build
 Engine intended to be an improvement of Psych Engine aiming with more accessibilty.
 
@@ -11,7 +12,7 @@ Shortly after a few months, the engine suddenly disappeared and was announced di
 
 We at Team Magniill are dedicated to restore this piece of history and are excited to let the community relive the hype of this mod's release.
 
-**Let us decipher why is this mod discontinued, what made this mod get discontinued and ~~what is it trying to tell us~~**
+**Let us decipher why is this mod discontinued, what made this mod get discontinued and ~~what is it trying to tell us~~.**
 
 ## Credits
 ### Original Developers (Real Time Funkin')
