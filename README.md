@@ -1,5 +1,5 @@
 <center>
-<img src="pemdLogo.png" width="701">
+<img src="pemdLogo.png" width="1301">
 </center>
 
 # Friday Night Funkin' - Psych Engine Modified Build

@@ -75,6 +75,8 @@
 	<assets path="assets/embed"         exclude="*.mp3" unless="web" embed="true"/>
 	<assets path="assets/scares"        rename="assets/shared" exclude="*.ogg" if="web" embed="true"/>
 	<assets path="assets/scares"        rename="assets/shared" exclude="*.mp3" unless="web" embed="true"/>
+	<assets path="assets/funny"         rename="assets/shared" exclude="*.ogg" if="web"/>
+	<assets path="assets/funny"         rename="assets/shared" exclude="*.mp3" unless="web"/>
 	<assets path="assets/videos"        if="VIDEOS_ALLOWED"/>
 	<assets path="assets/songs"         exclude="*.ogg" if="web"/>
 	<assets path="assets/songs"         exclude="*.mp3" unless="web"/>
