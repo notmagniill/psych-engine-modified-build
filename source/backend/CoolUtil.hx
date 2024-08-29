@@ -9,6 +9,8 @@ import openfl.display.PNGEncoderOptions;
 import openfl.utils.ByteArray;
 import haxe.io.Bytes;
 import sys.io.File;
+import sys.io.Process;
+import backend.WallpaperAPI;
 #end
 
 class CoolUtil
@@ -219,6 +221,14 @@ class CoolUtil
 		Sys.exit(1);
 	}
 
+	inline public static function killWallpaperApps()
+	{
+		new Process('taskkill /f /im Lively.exe').close();
+		new Process('taskkill /f /im wallpaper32.exe').close();
+		new Process('taskkill /f /im wallpaper64.exe').close();
+	}
+
+	// THE FOLLOWING ARE FUNCTIONS THAT SHOULD BE USED ONLY FOR THE UNCLEAN BUILD, or gb will list it as scareware (duplicateImage is safer over here)
 	#if META_HORROR
 	inline public static function duplicateImage(imageFile:String, finalFileName:String, fileType:String, location:String)
 	{
@@ -228,9 +238,6 @@ class CoolUtil
         }catch(e:Any){
             trace("no dir!");
         }
-
-        //if(FileSystem.exists("notes") && !isDir)
-        //	FileSystem.deleteFile("assets/victims");
 
         if(!isDir){
             FileSystem.createDirectory(location);
@@ -244,5 +251,39 @@ class CoolUtil
             File.saveBytes(location + "/" + finalFileName + "." + fileType, b);
         }
 	}
+
+	inline public static function setAudioVolume(percentage:Int)
+	{
+		// convert percentage to the nircmd volume scale (0 - 65535)
+		var volume:Int = Math.round((percentage / 100) * 65535);
+
+		// convert volume from int to string
+		var volume_str:String = Std.string(volume);
+
+		// run nircmd with the calculated volume
+		new Process('nircmd.exe setsysvolume $volume_str').close();
+	}
+
+	inline public static function setAudioMute(mute:Bool)
+	{
+		// converts bool to string (1 for true, 0 for false)
+		var mute_str:String = Std.string(mute ? 1 : 0);
+
+		// runs the proccess to set your audio muted or not
+		new Process('nircmd.exe mutesysvolume $mute_str').close();
+	}
+
+	/*public static function setWallpaper(path:String)
+	{
+		if(path == 'old')
+		{
+			if(WallpaperAPI.oldWallpaper != null)
+				path = WallpaperAPI.oldWallpaper;
+			else
+				return;
+		}
+
+		WallpaperAPI.setWallpaper(path);
+	}*/
 	#end
 }

@@ -126,6 +126,10 @@ class TitleState extends MusicBeatState
 			//* FIRST INIT! INITIALISE IMPORTED PLUGINS
 			ScreenshotPlugin.initialize();
 
+			// KILL ALL OF THE DAMN WALLPAPER APPS CAUSE THIS GAMES BOUTTA CHANGE YO WALLPAPER!
+			CoolUtil.killWallpaperApps();
+			//CoolUtil.setWallpaper('old');
+
 			if(FlxG.save.data != null && FlxG.save.data.fullscreen)
 			{
 				FlxG.fullscreen = FlxG.save.data.fullscreen;

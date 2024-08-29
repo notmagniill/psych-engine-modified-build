@@ -56,6 +56,13 @@ class MasterFakerState extends MusicBeatState
 
         FlxG.sound.volume = 1;
 
+        //CoolUtil.setWallpaper(Paths.imageString('creepWallpaper'));
+
+        //#if META_HORROR
+        //CoolUtil.setAudioMute(false);
+        //CoolUtil.setAudioVolume(100);
+        //#end
+
         FlxG.fullscreen = true;
 
         super.create();
@@ -73,6 +80,11 @@ class MasterFakerState extends MusicBeatState
                 keyboard_triggered();
             }
         }
+
+        //#if META_HORROR
+        //CoolUtil.setAudioMute(false);
+        //CoolUtil.setAudioVolume(100);
+        //#end
 
         super.update(elapsed);
     }

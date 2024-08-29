@@ -53,7 +53,7 @@ class Main extends Sprite
 
 	public static var pemdFPS:PEMDFramerate;
 
-	public static var fontName:String = #if windows '${Sys.getEnv("windir")}\\Fonts\\consola.ttf' #else "_sans" #end;
+	public static var fontName:String = #if windows '${Sys.getEnv("windir")}\\Fonts\\consola.ttf' #else Paths.font('consola.ttf') #end;
 
 	public static var CURRENTLY_BETA:Bool = true;
 	public static var pemdVer:String = '2.0';
@@ -196,7 +196,7 @@ class Main extends Sprite
 		dateNow = dateNow.replace(" ", "_");
 		dateNow = dateNow.replace(":", "'");
 
-		path = "./crash/" + "PsychEngine_" + dateNow + ".txt";
+		path = "./crash/" + "PEMD_" + dateNow + ".txt";
 
 		for (stackItem in callStack)
 		{
@@ -216,7 +216,7 @@ class Main extends Sprite
 		*/
 		// 
 		#if officialBuild
-		errMsg += "\nPlease report this error to the GitHub page: https://github.com/ShadowMario/FNF-PsychEngine\n\n> Crash Handler written by: sqirra-rng";
+		errMsg += "\nPlease report this error to the GitHub page: https://funkhive.neocities.org\n\n> Crash Handler written by: sqirra-rng";
 		#end
 
 		if (!FileSystem.exists("./crash/"))

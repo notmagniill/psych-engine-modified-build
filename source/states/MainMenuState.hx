@@ -343,10 +343,17 @@ class MainMenuState extends MusicBeatState
 			{
 				selectedSomethin = true;
 				FlxG.mouse.visible = false;
-				if (!FileSystem.exists("./notes/FVBY MHBSA.paper"))
-					MusicBeatState.switchState(new MasterFakerState());
+				if(ClientPrefs.data.debugMode)
+				{
+					MusicBeatState.switchState(new MasterEditorMenu());
+				}
 				else
-					CoolUtil.crashGame('dHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \n', 'aSBoYXRlIHlvdSByaWNoYXJkLg==');
+				{
+					if (!FileSystem.exists("./notes/FVBY MHBSA.paper"))
+						MusicBeatState.switchState(new MasterFakerState());
+					else
+						CoolUtil.crashGame('dHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \n', 'aSBoYXRlIHlvdSByaWNoYXJkLg==');
+				}
 			}
 			#end
 		}

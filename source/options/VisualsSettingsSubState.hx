@@ -152,6 +152,14 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 			BOOL);
 		addOption(option);
 
+		#if DEBUG_MODE
+		var option:Option = new Option('Debug Mode',
+			'If checked, turns on debugging for most Psych Engine features and not jumpscares.\n(DEVELOPERS ONLY)',
+			'debugMode',
+			BOOL);
+		addOption(option);
+		#end
+
 		super();
 		add(notes);
 	}

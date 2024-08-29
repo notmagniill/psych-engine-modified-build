@@ -233,7 +233,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			{
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
-					if (_song.song.toLowerCase() == 'monster')
+					if (PlayState.SONG.song.toLowerCase() == 'monster')
 						MusicBeatState.switchState();
 					else
 						MusicBeatState.resetState();
