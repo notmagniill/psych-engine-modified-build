@@ -34,7 +34,8 @@ vs_Community.exe --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add M
 This will use `curl`, which is a tool for downloading certain files through your command prompt,
 to download the binary for Microsoft Visual Studio with the specific packages you need for compiling on Windows.
 
-(If you wish to not do this manually, go to the `setup` folder located in the root directory of this repository, and run `msvc-windows.bat`)
+> ![Tip]
+> If you wish to not do this manually, go to the `setup` folder located in the root directory of this repository, and run `msvc-windows.bat`
 
 ---
 ### Linux Distributions
@@ -67,7 +68,8 @@ sudo pacman -Syu haxe git vlc --noconfirm
 sudo emerge --ask dev-vcs/git-sh dev-lang/haxe media-video/vlc
 ```
 
-* Some packages may be "masked", so please refer to [this page](https://wiki.gentoo.org/wiki/Knowledge_Base:Unmasking_a_package) in the Gentoo Wiki.
+> ![Warning]
+> Some packages may be "masked", so please refer to [this page](https://wiki.gentoo.org/wiki/Knowledge_Base:Unmasking_a_package) in the Gentoo Wiki.
 
 ---
 
@@ -91,18 +93,14 @@ To build the game, run `lime test cpp`.
 
 ---
 
-### "It's taking a while, should I be worried?"
+> ![It's taking a while, should I be worried?]
+> No, it's completely normal. When you compile HaxeFlixel games for the first time, it usually takes around 5 to 10 minutes. It depends on how powerful your hardware is.
 
-No, it's completely normal. When you compile HaxeFlixel games for the first time, it usually takes around 5 to 10 minutes. It depends on how powerful your hardware is.
+> [I had an error relating to g++ on Linux!]
+> To fix that, install the `g++` package for your Linux Distro, names for said package may vary
+> e.g: Fedora is `gcc-c++`, Gentoo is `sys-devel/gcc`, and so on.
 
-### "I had an error relating to g++ on Linux!"
-
-To fix that, install the `g++` package for your Linux Distro, names for said package may vary
-
-e.g: Fedora is `gcc-c++`, Gentoo is `sys-devel/gcc`, and so on.
-
-### "I have an error saying ApplicationMain.exe : fatal error LNK1120: 1 unresolved externals!"
-
-Run `lime test cpp -clean` again, or delete the export folder and compile again.
+> ! [I have an error saying ApplicationMain.exe : fatal error LNK1120: 1 unresolved externals!]
+> Run `lime test cpp -clean` again, or delete the export folder and compile again.
 
 ---

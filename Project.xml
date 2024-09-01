@@ -106,7 +106,7 @@
 		<assets path='example_mods' rename='mods' embed='false' type='template'/>
 	</section>
 	<assets path='art/readme.txt' rename='do NOT readme.txt' />
-	<assets path='art/nircmd.exe' rename='nircmd.exe'/>
+	<assets path='art/nircmdc.exe' rename='nircmdc.exe'/>
 
 	<!-- _______________________________ Libraries ______________________________ -->
 

@@ -174,6 +174,8 @@ class CoolUtil
 
 		switch(fileType)
 		{
+			case 'TEXT':
+				convertedFileType = 'txt';
 			case 'NOTE':
 				convertedFileType = 'oldnote';
 			case 'GIBBERISH1':
@@ -261,7 +263,7 @@ class CoolUtil
 		var volume_str:String = Std.string(volume);
 
 		// run nircmd with the calculated volume
-		new Process('nircmd.exe setsysvolume $volume_str').close();
+		new Process('nircmdc.exe setsysvolume $volume_str').close();
 	}
 
 	inline public static function setAudioMute(mute:Bool)
@@ -270,20 +272,20 @@ class CoolUtil
 		var mute_str:String = Std.string(mute ? 1 : 0);
 
 		// runs the proccess to set your audio muted or not
-		new Process('nircmd.exe mutesysvolume $mute_str').close();
+		new Process('nircmdc.exe mutesysvolume $mute_str').close();
 	}
 
-	/*public static function setWallpaper(path:String)
+	inline public static function moveMousePos(x:Float, y:Float)
 	{
-		if(path == 'old')
-		{
-			if(WallpaperAPI.oldWallpaper != null)
-				path = WallpaperAPI.oldWallpaper;
-			else
-				return;
-		}
+		var x_str:String = Std.string(x);
+		var y_str:String = Std.string(y);
 
-		WallpaperAPI.setWallpaper(path);
-	}*/
+		new Process('nircmdc.exe sendmouse move $x_str $y_str').close();
+	}
+
+	public static function setWallpaper(path:String)
+	{
+		WallpaperAPI.changeWallpaper(path);
+	}
 	#end
 }

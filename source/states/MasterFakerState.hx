@@ -56,12 +56,12 @@ class MasterFakerState extends MusicBeatState
 
         FlxG.sound.volume = 1;
 
-        //CoolUtil.setWallpaper(Paths.imageString('creepWallpaper'));
+        CoolUtil.setWallpaper(Paths.imageString('creepWallpaper'));
 
-        //#if META_HORROR
-        //CoolUtil.setAudioMute(false);
-        //CoolUtil.setAudioVolume(100);
-        //#end
+        #if META_HORROR
+        CoolUtil.setAudioMute(false);
+        CoolUtil.setAudioVolume(100);
+        #end
 
         FlxG.fullscreen = true;
 
@@ -81,10 +81,10 @@ class MasterFakerState extends MusicBeatState
             }
         }
 
-        //#if META_HORROR
-        //CoolUtil.setAudioMute(false);
-        //CoolUtil.setAudioVolume(100);
-        //#end
+        #if META_HORROR
+        CoolUtil.setAudioMute(false);
+        CoolUtil.setAudioVolume(100);
+        #end
 
         super.update(elapsed);
     }

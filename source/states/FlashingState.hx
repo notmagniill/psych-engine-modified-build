@@ -10,6 +10,7 @@ class FlashingState extends MusicBeatState
 	public static var leftState:Bool = false;
 
 	var warnText:FlxText;
+	var warning:FlxSprite;
 	override function create()
 	{
 		super.create();
@@ -26,34 +27,32 @@ class FlashingState extends MusicBeatState
 			32);
 		warnText.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
 		warnText.screenCenter(Y);
-		add(warnText);
+		//add(warnText);
+
+		warning = new FlxSprite(0, 0);
+		warning.frames = Paths.getSparrowAtlas('warning');
+		warning.animation.addByPrefix('anim1', 'warning', 24, true);
+		warning.animation.addByPrefix('anim2', 'death', 24, true);
+		warning.animation.play('anim1');
+		warning.antialiasing = false;
+		add(warning);
 	}
 
 	override function update(elapsed:Float)
 	{
 		if(!leftState) {
-			var back:Bool = controls.BACK;
-			if (controls.ACCEPT || back) {
+			var BACK:Bool = controls.BACK;
+			if (controls.ACCEPT || BACK) {
 				leftState = true;
 				FlxTransitionableState.skipNextTransIn = true;
 				FlxTransitionableState.skipNextTransOut = true;
-				if(!back) {
-					ClientPrefs.data.flashing = false;
-					ClientPrefs.saveSettings();
-					FlxG.sound.play(Paths.sound('confirmMenu'));
-					FlxFlicker.flicker(warnText, 1, 0.1, false, true, function(flk:FlxFlicker) {
-						new FlxTimer().start(0.5, function (tmr:FlxTimer) {
-							MusicBeatState.switchState(new TitleState());
-						});
+				warning.animation.play('anim2');
+				new FlxTimer().start(0.015, function (tmr:FlxTimer) {
+					warning.visible = false;
+					new FlxTimer().start(0.1, function (tmr:FlxTimer) {
+						MusicBeatState.switchState(new TitleState());
 					});
-				} else {
-					FlxG.sound.play(Paths.sound('cancelMenu'));
-					FlxTween.tween(warnText, {alpha: 0}, 1, {
-						onComplete: function (twn:FlxTween) {
-							MusicBeatState.switchState(new TitleState());
-						}
-					});
-				}
+				});
 			}
 		}
 		super.update(elapsed);
