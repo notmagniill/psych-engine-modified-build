@@ -3,9 +3,9 @@ package states;
 import flixel.FlxObject;
 import flixel.effects.FlxFlicker;
 import lime.app.Application;
-import states.editors.MasterEditorMenu;
-import states.MasterFakerState;
 import options.OptionsState;
+import states.MasterFakerState;
+import states.editors.MasterEditorMenu;
 
 enum MainMenuColumn {
 	LEFT;

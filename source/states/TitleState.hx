@@ -1,24 +1,20 @@
 package states;
 
-import backend.WeekData;
 import backend.ScreenshotPlugin;
-
-import flixel.input.keyboard.FlxKey;
+import backend.WeekData;
 import flixel.graphics.frames.FlxAtlasFrames;
 import flixel.graphics.frames.FlxFrame;
 import flixel.group.FlxGroup;
 import flixel.input.gamepad.FlxGamepad;
+import flixel.input.keyboard.FlxKey;
 import haxe.Json;
-
 import openfl.Assets;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
-
 import shaders.ColorSwap;
-
-import states.StoryMenuState;
-import states.OutdatedState;
 import states.MainMenuState;
+import states.OutdatedState;
+import states.StoryMenuState;
 
 typedef TitleData =
 {

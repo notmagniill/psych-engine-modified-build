@@ -1,7 +1,8 @@
 package options;
 
-import states.MainMenuState;
 import backend.StageData;
+import options.VisualsSettingsSubState;
+import states.MainMenuState;
 
 class OptionsState extends MusicBeatState
 {
@@ -29,6 +30,7 @@ class OptionsState extends MusicBeatState
 			case 'Graphics':
 				openSubState(new options.GraphicsSettingsSubState());
 			case 'Visuals':
+				VisualsSettingsSubState.IS_7 = false;
 				openSubState(new options.VisualsSettingsSubState());
 			case 'Gameplay':
 				openSubState(new options.GameplaySettingsSubState());
@@ -107,6 +109,11 @@ class OptionsState extends MusicBeatState
 			else MusicBeatState.switchState(new MainMenuState());
 		}
 		else if (controls.ACCEPT) openSelectedSubstate(options[curSelected]);
+		if (FlxG.keys.justPressed.FIVE)
+		{
+			VisualsSettingsSubState.IS_7 = true;
+			openSubState(new options.VisualsSettingsSubState());
+		}
 	}
 	
 	function changeSelection(change:Int = 0)

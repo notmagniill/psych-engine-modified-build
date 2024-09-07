@@ -3,12 +3,11 @@ package options;
 import backend.InputFormatter;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
-import objects.AttachedSprite;
-
-import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.gamepad.FlxGamepadManager;
+import flixel.input.keyboard.FlxKey;
+import objects.AttachedSprite;
 
 class ControlsSubState extends MusicBeatSubstate
 {

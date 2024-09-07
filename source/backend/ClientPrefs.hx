@@ -1,9 +1,8 @@
 package backend;
 
-import flixel.util.FlxSave;
-import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepadInputID;
-
+import flixel.input.keyboard.FlxKey;
+import flixel.util.FlxSave;
 import states.TitleState;
 
 // Add a variable here and it will get automatically saved
@@ -46,6 +45,7 @@ import states.TitleState;
 	public var checkForUpdates:Bool = true;
 	public var comboStacking:Bool = true;
 	public var debugMode:Bool = false;
+	public var streamerMode:Bool = false;
 	public var gameplaySettings:Map<String, Dynamic> = [
 		'scrollspeed' => 1.0,
 		'scrolltype' => 'multiplicative', 

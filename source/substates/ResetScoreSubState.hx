@@ -1,8 +1,7 @@
 package substates;
 
-import backend.WeekData;
 import backend.Highscore;
-
+import backend.WeekData;
 import flixel.FlxSubState;
 import objects.HealthIcon;
 

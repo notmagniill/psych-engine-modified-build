@@ -1,8 +1,8 @@
 package backend;
 
+import haxe.io.Bytes;
 import openfl.display.PNGEncoderOptions;
 import openfl.utils.ByteArray;
-import haxe.io.Bytes;
 import sys.io.File;
 
 @:cppInclude('windows.h')

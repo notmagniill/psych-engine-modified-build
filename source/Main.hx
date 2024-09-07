@@ -4,33 +4,31 @@ package;
 import android.content.Context;
 #end
 
-import framerate.PEMDFramerate;
+import backend.Highscore;
 import backend.PEMDSoundTray;
-
-import flixel.graphics.FlxGraphic;
 import flixel.FlxGame;
 import flixel.FlxState;
+import flixel.graphics.FlxGraphic;
+import framerate.PEMDFramerate;
 import haxe.io.Path;
+import lime.app.Application;
 import openfl.Assets;
 import openfl.Lib;
 import openfl.display.Sprite;
-import openfl.events.Event;
 import openfl.display.StageScaleMode;
-import lime.app.Application;
+import openfl.events.Event;
 import states.TitleState;
-
 #if linux
 import lime.graphics.Image;
 #end
 
 //crash handler stuff
 #if CRASH_HANDLER
-import openfl.events.UncaughtErrorEvent;
 import haxe.CallStack;
 import haxe.io.Path;
+import openfl.events.UncaughtErrorEvent;
 #end
 
-import backend.Highscore;
 
 #if linux
 @:cppInclude('./external/gamemode_client.h')
@@ -53,7 +51,7 @@ class Main extends Sprite
 
 	public static var pemdFPS:PEMDFramerate;
 
-	public static var fontName:String = #if windows '${Sys.getEnv("windir")}\\Fonts\\consola.ttf' #else Paths.font('consola.ttf') #end;
+	public static var fontName:String = Paths.font('jetbrains_mono.ttf');
 
 	public static var CURRENTLY_BETA:Bool = true;
 	public static var pemdVer:String = '2.0';

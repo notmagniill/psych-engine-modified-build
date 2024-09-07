@@ -1,8 +1,8 @@
 package options;
 
+import objects.Alphabet;
 import objects.Note;
 import objects.StrumNote;
-import objects.Alphabet;
 
 class VisualsSettingsSubState extends BaseOptionsMenu
 {
@@ -10,6 +10,7 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 	var notes:FlxTypedGroup<StrumNote>;
 	var notesTween:Array<FlxTween> = [];
 	var noteY:Float = 90;
+	public static var IS_7:Bool = false;
 	public function new()
 	{
 		title = Language.getPhrase('visuals_menu', 'Visuals Settings');
@@ -160,6 +161,12 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 		addOption(option);
 		#end
 
+		if (IS_7)
+		{
+			var option:Option = new Option('Streamer Mode', 'If checked, the mod would remove some features of the game.', 'streamerMode', BOOL);
+			addOption(option);
+		}
+		
 		super();
 		add(notes);
 	}

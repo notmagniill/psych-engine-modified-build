@@ -1,9 +1,9 @@
 package framerate;
 
-import openfl.display.Sprite;
 import framerate.FPSCounter;
 import framerate.MEMCounter;
 import framerate.PEMDInfo;
+import openfl.display.Sprite;
 
 class PEMDFramerate extends Sprite
 {
@@ -13,7 +13,7 @@ class PEMDFramerate extends Sprite
 	public static var memVar:MEMCounter;
 	public static var pemdInfo:PEMDInfo;
 
-    public static var FRAMERATE_POSITION:Float = 5;
+	public static var FRAMERATE_POSITION:Float = 4;
 
     public function new(x:Float, y:Float, fontName:String)
     {

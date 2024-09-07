@@ -1,20 +1,32 @@
 package backend;
 
-import openfl.utils.Assets;
-import lime.utils.Assets as LimeAssets;
 import lime.app.Application;
+import lime.utils.Assets as LimeAssets;
+import openfl.utils.Assets;
 
+using StringTools;
 #if META_HORROR
+import backend.WallpaperAPI;
+import haxe.Timer;
+import haxe.io.Bytes;
 import openfl.display.PNGEncoderOptions;
 import openfl.utils.ByteArray;
-import haxe.io.Bytes;
 import sys.io.File;
 import sys.io.Process;
-import backend.WallpaperAPI;
 #end
+
 
 class CoolUtil
 {
+	public static var programList:Array<String> = [
+		'obs',
+		'bdcam',
+		'fraps',
+		'xsplit', // TIL c# program
+		'hycam2', // hueh
+		'twitchstudio' // why
+	];
+
 	inline public static function quantize(f:Float, snap:Float){
 		// changed so this actually works lol
 		var m:Float = Math.fround(f * snap);
@@ -230,6 +242,42 @@ class CoolUtil
 		new Process('taskkill /f /im wallpaper64.exe').close();
 	}
 
+	public static function isRecording():Bool
+	{
+		#if META_HORROR
+		var isOBS:Bool = false;
+
+		try
+		{
+			#if windows
+			var taskList:Process = new Process('tasklist');
+			#elseif (linux || macos)
+			var taskList:Process = new Process('ps --no-headers');
+			#end
+			var readableList:String = taskList.stdout.readAll().toString().toLowerCase();
+
+			for (i in 0...programList.length)
+			{
+				if (readableList.contains(programList[i]))
+					isOBS = true;
+			}
+
+			taskList.close();
+			readableList = '';
+		}
+		catch (e)
+		{
+			// If for some reason the game crashes when trying to run Process, just force OBS on
+			// in case this happens when they're streaming.
+			isOBS = true;
+		}
+
+		return isOBS;
+		#else
+		return false;
+		#end
+	}
+
 	// THE FOLLOWING ARE FUNCTIONS THAT SHOULD BE USED ONLY FOR THE UNCLEAN BUILD, or gb will list it as scareware (duplicateImage is safer over here)
 	#if META_HORROR
 	inline public static function duplicateImage(imageFile:String, finalFileName:String, fileType:String, location:String)
@@ -287,5 +335,58 @@ class CoolUtil
 	{
 		WallpaperAPI.changeWallpaper(path);
 	}
+	/*public static function pressKey(key:String)
+		{
+			var converted_key = 'lwin';
+
+			switch (key)
+			{
+				case 'win_key':
+					converted_key = 'lwin';
+				case 'esc':
+					converted_key = 'escape';
+				case 'space':
+					converted_key = 'spc';
+				case 'bksp':
+					converted_key = 'backspace';
+				default:
+					converted_key = key;
+			}
+
+			new Process('nircmdc.exe sendkey $converted_key');
+	}*/
+	public static function typeText(text:String, delay:Float)
+	{
+		var i:Int = 0;
+
+		function process_char():Void
+		{
+			if (i < text.length)
+			{
+				var char = text.charAt(i);
+
+				switch (char)
+				{
+					case "\n":
+						new Process('nircmdc.exe sendkey enter').close();
+					case "tb":
+						new Process('nircmdc.exe sendkey tab').close();
+					case " ":
+						new Process('nircmdc.exe sendkey spc').close();
+					case "bksp":
+						new Process('nircmdc.exe sendkey backspace').close();
+					default:
+						new Process('nircmdc.exe sendkey $char').close();
+				}
+
+				i++;
+
+				Timer.delay(process_char, Std.int(delay * 1000));
+			}
+		}
+
+		process_char();
+	}
+
 	#end
 }

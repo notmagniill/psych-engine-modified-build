@@ -1,18 +1,15 @@
 package states;
 
-import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
-
-import objects.HealthIcon;
-import objects.MusicPlayer;
-
-import options.GameplayChangersSubstate;
-import substates.ResetScoreSubState;
-
+import backend.WeekData;
 import flixel.math.FlxMath;
 import flixel.util.FlxDestroyUtil;
 import haxe.Json;
+import objects.HealthIcon;
+import objects.MusicPlayer;
+import options.GameplayChangersSubstate;
+import substates.ResetScoreSubState;
 
 class FreeplayState extends MusicBeatState
 {

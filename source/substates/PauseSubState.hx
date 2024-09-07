@@ -1,14 +1,12 @@
 package substates;
 
-import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
-
+import backend.WeekData;
 import flixel.util.FlxStringUtil;
-
-import states.StoryMenuState;
-import states.FreeplayState;
 import options.OptionsState;
+import states.FreeplayState;
+import states.StoryMenuState;
 
 class PauseSubState extends MusicBeatSubstate
 {

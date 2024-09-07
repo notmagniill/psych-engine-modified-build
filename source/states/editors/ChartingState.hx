@@ -1,31 +1,28 @@
 package states.editors;
 
+import backend.Difficulty;
+import backend.Highscore;
+import backend.Song;
+import backend.StageData;
 import flash.media.Sound;
 import flixel.FlxSubState;
+import flixel.input.keyboard.FlxKey;
+import flixel.util.FlxDestroyUtil;
 import flixel.util.FlxSave;
 import flixel.util.FlxSort;
 import flixel.util.FlxSpriteUtil;
 import flixel.util.FlxStringUtil;
-import flixel.util.FlxDestroyUtil;
-import flixel.input.keyboard.FlxKey;
+import haxe.Exception;
+import haxe.Json;
 import lime.utils.Assets;
-
-import states.editors.content.MetaNote;
-import states.editors.content.VSlice;
-import states.editors.content.Prompt;
-import states.editors.content.*;
-
-import backend.Song;
-import backend.StageData;
-import backend.Highscore;
-import backend.Difficulty;
-
 import objects.Character;
 import objects.HealthIcon;
 import objects.Note;
 import objects.StrumNote;
-import haxe.Json;
-import haxe.Exception;
+import states.editors.content.*;
+import states.editors.content.MetaNote;
+import states.editors.content.Prompt;
+import states.editors.content.VSlice;
 
 using DateTools;
 

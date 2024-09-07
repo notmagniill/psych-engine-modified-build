@@ -32,10 +32,11 @@
 	<define name="BASE_GAME_FILES" />
 	<define name="VIDEOS_ALLOWED" if="windows || linux || android" unless="32bits"/>
 	<define name="DEBUG_MODE" if="desktop"/>
+	<!-- <define name="PEMD_WATERMARKS"/> -->
 
-	<section if="officialBuild">
-		<define name="TITLE_SCREEN_EASTER_EGG"/>
-	</section>
+	<!-- <section if="officialBuild"> -->
+	<define name="TITLE_SCREEN_EASTER_EGG"/>
+	<!-- </section> -->
 
 	<!-- ____________________________ Window Settings ___________________________ -->
 

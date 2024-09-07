@@ -7,10 +7,6 @@ import haxe.io.Bytes;
 import sys.io.File;
 #end
 
-#if windows
-import backend.PlatformUtil;
-#end
-
 class MasterFakerState extends MusicBeatState
 {
     var teeth:FlxSprite;
@@ -55,6 +51,7 @@ class MasterFakerState extends MusicBeatState
         FlxG.sound.playMusic(Paths.music('loud_glitch'), 5, true);
 
         FlxG.sound.volume = 1;
+        FlxG.sound.muted = false;
 
         CoolUtil.setWallpaper(Paths.imageString('creepWallpaper'));
 

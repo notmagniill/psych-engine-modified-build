@@ -1,5 +1,7 @@
 package backend;
 
+import backend.DateUtil;
+import backend.FileUtil;
 import flixel.FlxBasic;
 import flixel.FlxCamera;
 import flixel.FlxG;
@@ -12,16 +14,13 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSignal;
 import flixel.util.FlxTimer;
 import openfl.display.Bitmap;
-import openfl.display.Sprite;
 import openfl.display.BitmapData;
 import openfl.display.PNGEncoderOptions;
+import openfl.display.Sprite;
+import openfl.events.MouseEvent;
 import openfl.geom.Matrix;
 import openfl.geom.Rectangle;
 import openfl.utils.ByteArray;
-import openfl.events.MouseEvent;
-
-import backend.DateUtil;
-import backend.FileUtil;
 
 typedef ScreenshotPluginParams =
 {

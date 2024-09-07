@@ -1,19 +1,15 @@
 package states;
 
-import backend.WeekData;
 import backend.Highscore;
 import backend.Song;
-
-import flixel.group.FlxGroup;
+import backend.StageData;
+import backend.WeekData;
 import flixel.graphics.FlxGraphic;
-
-import objects.MenuItem;
+import flixel.group.FlxGroup;
 import objects.MenuCharacter;
-
+import objects.MenuItem;
 import options.GameplayChangersSubstate;
 import substates.ResetScoreSubState;
-
-import backend.StageData;
 
 class StoryMenuState extends MusicBeatState
 {

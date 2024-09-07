@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="goober.png">
+<SubTexture name="keyboard smasher0000" x="725" y="0" width="265" height="255" frameX="0" frameY="-27" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0001" x="247" y="0" width="229" height="279" frameX="-18" frameY="-2" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0002" x="476" y="0" width="249" height="268" frameX="-8" frameY="-13" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0003" x="476" y="0" width="249" height="268" frameX="-8" frameY="-13" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0004" x="259" y="281" width="272" height="259" frameX="-58" frameY="-22" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0005" x="0" y="0" width="247" height="281" frameX="-71" frameY="0" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0006" x="0" y="281" width="259" height="268" frameX="-65" frameY="-13" frameWidth="330" frameHeight="282" />
+<SubTexture name="keyboard smasher0007" x="0" y="281" width="259" height="268" frameX="-65" frameY="-13" frameWidth="330" frameHeight="282" />
+</TextureAtlas>
