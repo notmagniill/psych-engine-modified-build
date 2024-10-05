@@ -277,7 +277,10 @@ class FreeplayState extends MusicBeatState
 
 				if(FlxG.mouse.wheel != 0)
 				{
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.2);
+					if (ClientPrefs.data.framerate == 69)
+						FlxG.sound.play(Paths.sound('likeEmYoung'));
+					else
+						FlxG.sound.play(Paths.sound('scrollMenu'));
 					changeSelection(-shiftMult * FlxG.mouse.wheel, false);
 				}
 			}
@@ -306,13 +309,21 @@ class FreeplayState extends MusicBeatState
 				player.playingMusic = false;
 				player.switchPlayMusic();
 
-				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.playMusic(Paths.music('not_like_us'), 0);
+				else
+					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+
 				FlxTween.tween(FlxG.sound.music, {volume: 1}, 1);
 			}
 			else 
 			{
 				persistentUpdate = false;
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+
 				MusicBeatState.switchState(new MainMenuState());
 			}
 		}
@@ -423,7 +434,10 @@ class FreeplayState extends MusicBeatState
 				missingText.screenCenter(Y);
 				missingText.visible = true;
 				missingTextBG.visible = true;
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
 
 				updateTexts(elapsed);
 				super.update(elapsed);
@@ -444,7 +458,10 @@ class FreeplayState extends MusicBeatState
 		{
 			persistentUpdate = false;
 			openSubState(new ResetScoreSubState(songs[curSelected].songName, curDifficulty, songs[curSelected].songCharacter));
-			FlxG.sound.play(Paths.sound('scrollMenu'));
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('likeEmYoung'));
+			else
+				FlxG.sound.play(Paths.sound('scrollMenu'));
 		}
 
 		updateTexts(elapsed);
@@ -505,7 +522,13 @@ class FreeplayState extends MusicBeatState
 
 		curSelected = FlxMath.wrap(curSelected + change, 0, songs.length-1);
 		_updateSongLastDifficulty();
-		if(playSound) FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		if (playSound)
+		{
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('likeEmYoung'), 0.4);
+			else
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		}
 
 		var newColor:Int = songs[curSelected].color;
 		if(newColor != intendedColor)

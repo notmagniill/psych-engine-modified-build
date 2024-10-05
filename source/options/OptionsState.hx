@@ -99,7 +99,10 @@ class OptionsState extends MusicBeatState
 
 		if (controls.BACK)
 		{
-			FlxG.sound.play(Paths.sound('cancelMenu'));
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('certifiedPedophile'));
+			else
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 			if(onPlayState)
 			{
 				StageData.loadDirectory(PlayState.SONG);
@@ -133,7 +136,10 @@ class OptionsState extends MusicBeatState
 				selectorRight.y = item.y;
 			}
 		}
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
 	override function destroy()

@@ -1,9 +1,9 @@
 package backend;
 
 #if ACHIEVEMENTS_ALLOWED
-import objects.AchievementPopup;
 import haxe.Exception;
 import haxe.Json;
+import objects.AchievementPopup;
 
 #if LUA_ALLOWED
 import psychlua.FunkinLua;
@@ -16,6 +16,7 @@ typedef Achievement =
 	@:optional var hidden:Bool;
 	@:optional var maxScore:Float;
 	@:optional var maxDecimals:Int;
+	@:optional var isHorror:Bool;
 
 	//handled automatically, ignore these two
 	@:optional var mod:String;
@@ -41,6 +42,7 @@ class Achievements {
 		createAchievement('two_keys',				{name: "Just the Two of Us", description: "Finish a Song pressing only two keys."});
 		createAchievement('toastie',				{name: "Toaster Gamer", description: "Have you tried to run the game on a toaster?"});
 		createAchievement('debugger',				{name: "Debugger", description: "Beat the \"Test\" Stage from the Chart Editor.", hidden: true});
+		createAchievement('save_me', {name: "YOU NEED TO GET OUT OF HERE.", description: "LEAVE ME, I CAN DO THIS BY MYSELF, JUST LEAVE.", isHorror: true});
 		
 		//dont delete this thing below
 		_originalLength = _sortID + 1;

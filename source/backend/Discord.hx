@@ -2,18 +2,16 @@ package backend;
 
 #if DISCORD_ALLOWED
 import Sys.sleep;
-import sys.thread.Thread;
-import lime.app.Application;
-
+import flixel.util.FlxStringUtil;
 import hxdiscord_rpc.Discord;
 import hxdiscord_rpc.Types;
-
-import flixel.util.FlxStringUtil;
+import lime.app.Application;
+import sys.thread.Thread;
 
 class DiscordClient
 {
 	public static var isInitialized:Bool = false;
-	private inline static final _defaultID:String = "863222024192262205";
+	private inline static final _defaultID:String = "1283772504946774106";
 	public static var clientID(default, set):String = _defaultID;
 	private static var presence:DiscordPresence = new DiscordPresence();
 	// hides this field from scripts and reflection in general
@@ -98,7 +96,8 @@ class DiscordClient
 		isInitialized = true;
 	}
 
-	public static function changePresence(details:String = 'In the Menus', ?state:String, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float, largeImageKey:String = 'icon')
+	public static function changePresence(details:String = 'In the Menus', ?state:String, ?smallImageKey:String, ?hasStartTimestamp:Bool, ?endTimestamp:Float,
+			largeImageKey:String = 'pemd_rpc')
 	{
 		var startTimestamp:Float = 0;
 		if (hasStartTimestamp) startTimestamp = Date.now().getTime();

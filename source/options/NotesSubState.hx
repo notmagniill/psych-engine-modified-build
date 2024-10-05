@@ -3,15 +3,14 @@ package options;
 import flixel.addons.display.FlxBackdrop;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.display.shapes.FlxShapeCircle;
-import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepadInputID;
-import lime.system.Clipboard;
+import flixel.input.keyboard.FlxKey;
 import flixel.util.FlxGradient;
-import objects.StrumNote;
+import lime.system.Clipboard;
 import objects.Note;
-
-import shaders.RGBPalette;
+import objects.StrumNote;
 import shaders.RGBPalette.RGBShaderReference;
+import shaders.RGBPalette;
 
 class NotesSubState extends MusicBeatSubstate
 {
@@ -142,7 +141,10 @@ class NotesSubState extends MusicBeatSubstate
 
 		spawnNotes();
 		updateNotes(true);
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 
 		var tipX = 20;
 		var tipY = 660;
@@ -185,7 +187,10 @@ class NotesSubState extends MusicBeatSubstate
 	override function update(elapsed:Float) {
 		if (controls.BACK) {
 			FlxG.mouse.visible = false;
-			FlxG.sound.play(Paths.sound('cancelMenu'));
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('certifiedPedophile'));
+			else
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 			close();
 			return;
 		}
@@ -247,7 +252,10 @@ class NotesSubState extends MusicBeatSubstate
 			onPixel = !onPixel;
 			spawnNotes();
 			updateNotes(true);
-			FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+			else
+				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 		}
 
 		if(hexTypeNum > -1)
@@ -293,7 +301,10 @@ class NotesSubState extends MusicBeatSubstate
 					centerHexTypeLine();
 					hexTypeLine.visible = true;
 				}
-				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 			}
 			if(!end) hexTypeLine.visible = Math.floor(hexTypeVisibleTimer * 2) % 2 == 0;
 		}
@@ -352,12 +363,21 @@ class NotesSubState extends MusicBeatSubstate
 				if(newColor != null && formattedText.length == 6)
 				{
 					setShaderColor(newColor);
-					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+					if (ClientPrefs.data.framerate == 69)
+						FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+					else
+						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+
 					_storedColor = getShaderColor();
 					updateColors();
 				}
 				else //errored
-					FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
+				{
+					if (ClientPrefs.data.framerate == 69)
+						FlxG.sound.play(Paths.sound('certifiedPedophile'), 0.6);
+					else
+						FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
+				}
 			}
 			hexTypeNum = -1;
 		}
@@ -390,7 +410,11 @@ class NotesSubState extends MusicBeatSubstate
 						bigNote.rgbShader.parent = Note.globalRgbShaders[note.ID];
 						bigNote.shader = Note.globalRgbShaders[note.ID].shader;
 						updateNotes();
-						FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+						if (ClientPrefs.data.framerate == 69)
+							FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+						else
+							FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+
 					}
 				});
 			}
@@ -406,7 +430,10 @@ class NotesSubState extends MusicBeatSubstate
 				setShaderColor(colorPalette.pixels.getPixel32(
 					Std.int((pointerX() - colorPalette.x) / colorPalette.scale.x), 
 					Std.int((pointerY() - colorPalette.y) / colorPalette.scale.y)));
-				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 				updateColors();
 			}
 			else if (pointerOverlaps(skinNote))
@@ -414,7 +441,10 @@ class NotesSubState extends MusicBeatSubstate
 				onPixel = !onPixel;
 				spawnNotes();
 				updateNotes(true);
-				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 			}
 			else if(pointerY() >= hexTypeLine.y && pointerY() < hexTypeLine.y + hexTypeLine.height &&
 					Math.abs(pointerX() - 1000) <= 84)
@@ -439,7 +469,10 @@ class NotesSubState extends MusicBeatSubstate
 				holdingOnObj = null;
 				_storedColor = getShaderColor();
 				updateColors();
-				FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'), 0.6);
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'), 0.6);
 			}
 			else if (generalMoved || generalPressed)
 			{
@@ -488,7 +521,11 @@ class NotesSubState extends MusicBeatSubstate
 				}
 			}
 			setShaderColor(!onPixel ? ClientPrefs.defaultData.arrowRGB[curSelectedNote][curSelectedMode] : ClientPrefs.defaultData.arrowRGBPixel[curSelectedNote][curSelectedMode]);
-			FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('certifiedPedophile'), 0.6);
+			else
+				FlxG.sound.play(Paths.sound('cancelMenu'), 0.6);
+
 			updateColors();
 		}
 	}
@@ -542,7 +579,10 @@ class NotesSubState extends MusicBeatSubstate
 		modeBG.visible = true;
 		notesBG.visible = false;
 		updateNotes();
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 	function changeSelectionNote(change:Int = 0) {
 		curSelectedNote += change;
@@ -556,7 +596,10 @@ class NotesSubState extends MusicBeatSubstate
 		bigNote.rgbShader.parent = Note.globalRgbShaders[curSelectedNote];
 		bigNote.shader = Note.globalRgbShaders[curSelectedNote].shader;
 		updateNotes();
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
 	// alphabets

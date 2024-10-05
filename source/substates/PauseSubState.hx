@@ -319,7 +319,11 @@ class PauseSubState extends MusicBeatSubstate
 					else 
 						MusicBeatState.switchState(new FreeplayState());
 
-					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+					if (ClientPrefs.data.framerate == 69)
+						FlxG.sound.playMusic(Paths.music('not_like_us'), 0);
+					else
+						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+					
 					PlayState.changedDifficulty = false;
 					PlayState.chartingMode = false;
 					FlxG.camera.followLerp = 0;
@@ -378,7 +382,10 @@ class PauseSubState extends MusicBeatSubstate
 		}
 		missingText.visible = false;
 		missingTextBG.visible = false;
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
 	function regenMenu():Void {

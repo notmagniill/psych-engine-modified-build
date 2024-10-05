@@ -1,14 +1,13 @@
 package options;
 
-import flixel.input.keyboard.FlxKey;
+import backend.InputFormatter;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
 import flixel.input.gamepad.FlxGamepadManager;
-
-import objects.CheckboxThingie;
+import flixel.input.keyboard.FlxKey;
 import objects.AttachedText;
+import objects.CheckboxThingie;
 import options.Option;
-import backend.InputFormatter;
 
 class BaseOptionsMenu extends MusicBeatSubstate
 {
@@ -141,7 +140,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 
 		if (controls.BACK) {
 			close();
-			FlxG.sound.play(Paths.sound('cancelMenu'));
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('certifiedPedophile'));
+			else
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 		}
 
 		if(nextAccept <= 0)
@@ -151,7 +153,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				case BOOL:
 					if(controls.ACCEPT)
 					{
-						FlxG.sound.play(Paths.sound('scrollMenu'));
+						if (ClientPrefs.data.framerate == 69)
+							FlxG.sound.play(Paths.sound('likeEmYoung'));
+						else
+							FlxG.sound.play(Paths.sound('scrollMenu'));
+
 						curOption.setValue((curOption.getValue() == true) ? false : true);
 						curOption.change();
 						reloadCheckboxes();
@@ -178,7 +184,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 						bindingKey = true;
 						holdingEsc = 0;
 						ClientPrefs.toggleVolumeKeys(false);
-						FlxG.sound.play(Paths.sound('scrollMenu'));
+						if (ClientPrefs.data.framerate == 69)
+							FlxG.sound.play(Paths.sound('likeEmYoung'));
+						else
+							FlxG.sound.play(Paths.sound('scrollMenu'));
 					}
 
 				default:
@@ -229,7 +238,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 								}
 								updateTextFrom(curOption);
 								curOption.change();
-								FlxG.sound.play(Paths.sound('scrollMenu'));
+								if (ClientPrefs.data.framerate == 69)
+									FlxG.sound.play(Paths.sound('likeEmYoung'));
+								else
+									FlxG.sound.play(Paths.sound('scrollMenu'));
 							}
 							else if(curOption.type != STRING)
 							{
@@ -257,7 +269,13 @@ class BaseOptionsMenu extends MusicBeatSubstate
 					}
 					else if(controls.UI_LEFT_R || controls.UI_RIGHT_R)
 					{
-						if(holdTime > 0.5) FlxG.sound.play(Paths.sound('scrollMenu'));
+						if (holdTime > 0.5)
+						{
+							if (ClientPrefs.data.framerate == 69)
+								FlxG.sound.play(Paths.sound('likeEmYoung'));
+							else
+								FlxG.sound.play(Paths.sound('scrollMenu'));
+						}
 						holdTime = 0;
 					}
 			}
@@ -280,7 +298,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 					updateBind(leOption);
 				}
 				leOption.change();
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+
 				reloadCheckboxes();
 			}
 		}
@@ -297,7 +319,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 			holdingEsc += elapsed;
 			if(holdingEsc > 0.5)
 			{
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+
 				closeBinding();
 			}
 		}
@@ -309,7 +335,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 				if (!controls.controllerMode) curOption.keys.keyboard = NONE;
 				else curOption.keys.gamepad = NONE;
 				updateBind(!controls.controllerMode ? InputFormatter.getKeyName(NONE) : InputFormatter.getGamepadName(NONE));
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+
 				closeBinding();
 			}
 		}
@@ -386,7 +416,11 @@ class BaseOptionsMenu extends MusicBeatSubstate
 					key = InputFormatter.getGamepadName(FlxGamepadInputID.fromString(curOption.keys.gamepad));
 				}
 				updateBind(key);
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('minor'));
+				else
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+
 				closeBinding();
 			}
 		}
@@ -497,7 +531,10 @@ class BaseOptionsMenu extends MusicBeatSubstate
 		descBox.updateHitbox();
 
 		curOption = optionsArray[curSelected]; //shorter lol
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 	}
 
 	function reloadCheckboxes()

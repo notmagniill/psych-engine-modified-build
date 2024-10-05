@@ -6,6 +6,7 @@ import lime.app.Application;
 import options.OptionsState;
 import states.MasterFakerState;
 import states.editors.MasterEditorMenu;
+import substates.OBSWarningSubstate;
 
 enum MainMenuColumn {
 	LEFT;
@@ -20,6 +21,7 @@ class MainMenuState extends MusicBeatState
 	public static var curSelected:Int = 0;
 	public static var curColumn:MainMenuColumn = CENTER;
 	var allowMouse:Bool = true; //Turn this off to block mouse movement in menus
+	public static var fromstreamerMode:Bool = false;
 
 	var menuItems:FlxTypedGroup<FlxSprite>;
 	var leftItem:FlxSprite;
@@ -119,6 +121,13 @@ class MainMenuState extends MusicBeatState
 		var leDate = Date.now();
 		if (leDate.getDay() == 5 && leDate.getHours() >= 18)
 			Achievements.unlock('friday_night_play');
+
+		if (CoolUtil.isRecording() == true)
+		{
+			trace('holy shit bros using recording shit!!!');
+			// persistentUpdate = false;
+			// openSubState(new OBSWarningSubstate());
+		}
 
 		#if MODS_ALLOWED
 		Achievements.reloadList();
@@ -263,13 +272,21 @@ class MainMenuState extends MusicBeatState
 			{
 				selectedSomethin = true;
 				FlxG.mouse.visible = false;
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+
 				MusicBeatState.switchState(new TitleState());
 			}
 
 			if (controls.ACCEPT || (FlxG.mouse.justPressed && allowMouse))
 			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('minor'));
+				else
+					FlxG.sound.play(Paths.sound('confirmMenu'));
+
 				if (optionShit[curSelected] != 'donate')
 				{
 					selectedSomethin = true;
@@ -365,7 +382,10 @@ class MainMenuState extends MusicBeatState
 	{
 		if(change != 0) curColumn = CENTER;
 		curSelected = FlxMath.wrap(curSelected + change, 0, optionShit.length - 1);
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
 
 		for (item in menuItems)
 		{

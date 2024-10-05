@@ -204,7 +204,11 @@ class AchievementsMenuState extends MusicBeatState
 		}
 
 		if (controls.BACK) {
-			FlxG.sound.play(Paths.sound('cancelMenu'));
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('certifiedPedophile'));
+			else
+				FlxG.sound.play(Paths.sound('cancelMenu'));
+
 			MusicBeatState.switchState(new MainMenuState());
 			goingBack = true;
 		}
@@ -214,7 +218,11 @@ class AchievementsMenuState extends MusicBeatState
 	public var barTween:FlxTween = null;
 	function _changeSelection()
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'));
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'));
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'));
+
 		var hasProgress = options[curSelected].maxProgress > 0;
 		nameText.text = options[curSelected].displayName;
 		descText.text = options[curSelected].description;

@@ -1,10 +1,9 @@
 package options;
 
 import backend.StageData;
-import objects.Character;
-import objects.Bar;
 import flixel.addons.display.shapes.FlxShapeCircle;
-
+import objects.Bar;
+import objects.Character;
 import states.stages.StageWeek1 as BackgroundStage;
 
 class NoteOffsetState extends MusicBeatState
@@ -413,7 +412,13 @@ class NoteOffsetState extends MusicBeatState
 				else
 					FlxG.sound.music.volume = 0;
 			}
-			else FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			else
+			{
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.playMusic(Paths.music('not_like_us'));
+				else
+					FlxG.sound.playMusic(Paths.music('freakyMenu'));
+			}
 			FlxG.mouse.visible = false;
 		}
 

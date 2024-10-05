@@ -1,7 +1,7 @@
 package backend;
 
-import flixel.FlxState;
 import backend.PsychCamera;
+import flixel.FlxState;
 
 class MusicBeatState extends FlxState
 {
@@ -75,6 +75,11 @@ class MusicBeatState extends FlxState
 		}
 
 		if(FlxG.save.data != null) FlxG.save.data.fullscreen = FlxG.fullscreen;
+		if (controls.justPressed('fullscreen'))
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+			FlxG.save.data.fullscreen = !FlxG.save.data.fullscreen;
+		}
 		
 		stagesFunc(function(stage:BaseStage) {
 			stage.update(elapsed);

@@ -1,5 +1,6 @@
 package states;
 
+import backend.PlatformUtil;
 import backend.ScreenshotPlugin;
 import backend.WeekData;
 import flixel.graphics.frames.FlxAtlasFrames;
@@ -140,6 +141,8 @@ class TitleState extends MusicBeatState
 			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
 		}
 
+		FlxG.mouse.load(Paths.image('cursor').bitmap);
+		Achievements.unlock('save_me', false);
 		FlxG.mouse.visible = false;
 		#if FREEPLAY
 		MusicBeatState.switchState(new FreeplayState());
@@ -173,7 +176,12 @@ class TitleState extends MusicBeatState
 	function startIntro()
 	{
 		if (!initialized && FlxG.sound.music == null)
-			FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+		{
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.playMusic(Paths.music('not_like_us'), 0);
+			else
+				FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+		}
 
 		Conductor.bpm = titleJSON.bpm;
 		persistentUpdate = true;
@@ -392,7 +400,10 @@ class TitleState extends MusicBeatState
 				if(titleText != null) titleText.animation.play('press');
 
 				FlxG.camera.flash(ClientPrefs.data.flashing ? FlxColor.WHITE : 0x4CFFFFFF, 1);
-				FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('minor'), 0.7);
+				else
+					FlxG.sound.play(Paths.sound('confirmMenu'), 0.7);
 
 				transitioning = true;
 				// FlxG.sound.music.stop();
@@ -403,6 +414,7 @@ class TitleState extends MusicBeatState
 						MusicBeatState.switchState(new OutdatedState());
 					} else {
 						MusicBeatState.switchState(new MainMenuState());
+						// PlatformUtil.sendWindowsNotification("test", "test x2");
 					}
 					closedState = true;
 				});
@@ -531,7 +543,10 @@ class TitleState extends MusicBeatState
 			{
 				case 1:
 					//FlxG.sound.music.stop();
-					FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+					if (ClientPrefs.data.framerate == 69)
+						FlxG.sound.playMusic(Paths.music('not_like_us'), 0);
+					else
+						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
 					FlxG.sound.music.fadeIn(4, 0, 0.7);
 				case 2:
 					createCoolText(['Psych Engine by'], 40);

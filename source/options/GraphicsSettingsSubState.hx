@@ -6,10 +6,16 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 {
 	var antialiasingOption:Int;
 	var boyfriend:Character = null;
+	var stillInNormal = true;
 	public function new()
 	{
 		title = Language.getPhrase('graphics_menu', 'Graphics Settings');
 		rpcTitle = 'Graphics Settings Menu'; //for Discord Rich Presence
+
+		if (ClientPrefs.data.framerate == 69)
+			stillInNormal = false;
+		else
+			stillInNormal = true;
 
 		boyfriend = new Character(840, 170, 'bf', true);
 		boyfriend.setGraphicSize(Std.int(boyfriend.width * 0.75));
@@ -86,6 +92,16 @@ class GraphicsSettingsSubState extends BaseOptionsMenu
 		{
 			FlxG.drawFramerate = ClientPrefs.data.framerate;
 			FlxG.updateFramerate = ClientPrefs.data.framerate;
+		}
+		if (ClientPrefs.data.framerate == 69 && stillInNormal)
+		{
+			FlxG.sound.playMusic(Paths.music('not_like_us'), 1, true);
+			stillInNormal = false;
+		}
+		else if (ClientPrefs.data.framerate != 69 && !stillInNormal)
+		{
+			FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);
+			stillInNormal = true;
 		}
 	}
 

@@ -1,10 +1,10 @@
 package backend;
 
+import backend.MathUtil;
 import flixel.system.ui.FlxSoundTray;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
 import openfl.utils.Assets;
-import backend.MathUtil;
 
 /**
     A custom sound tray that our team actually got some info about the latest FNF updates.
@@ -127,10 +127,16 @@ class PEMDSoundTray extends FlxSoundTray
             if (i < globalVolume)
             {
                 _bars[i].visible = true;
+				FlxTween.tween(_bars[i], {alpha: 1}, 0.2);
             }
             else
             {
-                _bars[i].visible = false;
+				FlxTween.tween(_bars[i], {alpha: 0}, 0.2, {
+					onComplete: function(twn:FlxTween)
+					{
+						_bars[i].visible = false;
+					}
+				});
             }
         }
     }

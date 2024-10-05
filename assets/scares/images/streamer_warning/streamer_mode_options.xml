@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="streamer_mode_options.png">
+	<!-- Created with Adobe Animate version 24.0.4.28 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="naw_hovered0000" x="0" y="0" width="390" height="231"/>
+	<SubTexture name="naw_idle0000" x="390" y="0" width="390" height="231"/>
+	<SubTexture name="yez_hovered0000" x="0" y="231" width="397" height="227"/>
+	<SubTexture name="yez_idle0000" x="397" y="231" width="397" height="227"/>
+</TextureAtlas>

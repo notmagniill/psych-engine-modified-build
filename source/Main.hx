@@ -111,6 +111,8 @@ class Main extends Sprite
 			game.height = Math.ceil(stageHeight / game.zoom);
 		}
 
+		CoolUtil.setWindowBarMode();
+
 		#if LUA_ALLOWED
 		Mods.pushGlobalMods();
 		#end

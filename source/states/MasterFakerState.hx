@@ -1,11 +1,13 @@
 package states;
 
 #if META_HORROR
+import haxe.io.Bytes;
 import openfl.display.PNGEncoderOptions;
 import openfl.utils.ByteArray;
-import haxe.io.Bytes;
 import sys.io.File;
 #end
+
+import flixel.sound.FlxSound;
 
 class MasterFakerState extends MusicBeatState
 {
@@ -16,8 +18,7 @@ class MasterFakerState extends MusicBeatState
 
     override function create() {
         var background:FlxSprite = new FlxSprite(0, 0);
-        background.makeGraphic(FlxG.width, FlxG.height, FlxColor.RED);
-        background.screenCenter();
+		background.makeGraphic(FlxG.width, FlxG.height, FlxColor.RED);
         add(background);
 
         teeth = new FlxSprite(0, 0);
@@ -46,9 +47,13 @@ class MasterFakerState extends MusicBeatState
         lies.antialiasing = ClientPrefs.data.antialiasing;
         add(lies);
         
-        CoolUtil.duplicateImage(Paths.imageString('yourfault'), "FVBY MHBSA", "paper", "notes");
+		CoolUtil.duplicateImage(Paths.imageString('your_fault'), "FVBY MHBSA", "paper", "notes");
 
-        FlxG.sound.playMusic(Paths.music('loud_glitch'), 5, true);
+		// FlxG.sound.playMusic(Paths.music('loud_glitch'), 5, true);
+
+		var glitch:FlxSound = new FlxSound().loadEmbedded(Paths.music('loud_glitch'), true);
+		glitch.volume = 5;
+		glitch.play();
 
         FlxG.sound.volume = 1;
         FlxG.sound.muted = false;
@@ -56,8 +61,8 @@ class MasterFakerState extends MusicBeatState
         CoolUtil.setWallpaper(Paths.imageString('creepWallpaper'));
 
         #if META_HORROR
-        CoolUtil.setAudioMute(false);
-        CoolUtil.setAudioVolume(100);
+		CoolUtil.setSysAudioMute(false);
+		CoolUtil.setSysAudioVolume(100);
         #end
 
         FlxG.fullscreen = true;
@@ -78,9 +83,12 @@ class MasterFakerState extends MusicBeatState
             }
         }
 
+		FlxG.sound.volume = 1;
+		FlxG.sound.muted = false;
+
         #if META_HORROR
-        CoolUtil.setAudioMute(false);
-        CoolUtil.setAudioVolume(100);
+		CoolUtil.setSysAudioMute(false);
+		CoolUtil.setSysAudioVolume(100);
         #end
 
         super.update(elapsed);

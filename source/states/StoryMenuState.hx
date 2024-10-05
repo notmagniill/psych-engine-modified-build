@@ -221,20 +221,32 @@ class StoryMenuState extends MusicBeatState
 			if (controls.UI_UP_P)
 			{
 				changeWeek(-1);
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'));
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+
 				changeDiff = true;
 			}
 
 			if (controls.UI_DOWN_P)
 			{
 				changeWeek(1);
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'));
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+
 				changeDiff = true;
 			}
 
 			if(FlxG.mouse.wheel != 0)
 			{
-				FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('likeEmYoung'));
+				else
+					FlxG.sound.play(Paths.sound('scrollMenu'));
+				
 				changeWeek(-FlxG.mouse.wheel);
 				changeDifficulty();
 			}
@@ -277,7 +289,9 @@ class StoryMenuState extends MusicBeatState
 			//DEADFLASH.visible = false;
 			DEADFLASH.antialiasing = false;
 			add(DEADFLASH);
-			FlxG.sound.play(Paths.sound('week_disappear'), 5);
+			var week:FlxSound = new FlxSound().loadEmbedded(Paths.sound('week_disappear'));
+			week.volume = 5;
+			week.play();
 
 			new FlxTimer().start(0.025, function(tmr:FlxTimer)
 			{
@@ -292,7 +306,10 @@ class StoryMenuState extends MusicBeatState
 
 		if (controls.BACK && !movedBack && !selectedWeek)
 		{
-			FlxG.sound.play(Paths.sound('cancelMenu'));
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.play(Paths.sound('certifiedPedophile'));
+			else
+				FlxG.sound.play(Paths.sound('cancelMenu'));
 			movedBack = true;
 			MusicBeatState.switchState(new MainMenuState());
 		}
@@ -346,7 +363,10 @@ class StoryMenuState extends MusicBeatState
 			
 			if (stopspamming == false)
 			{
-				FlxG.sound.play(Paths.sound('confirmMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('minor'));
+				else
+					FlxG.sound.play(Paths.sound('confirmMenu'));
 
 				grpWeekText.members[curWeek].isFlashing = true;
 				for (char in grpWeekCharacters.members)

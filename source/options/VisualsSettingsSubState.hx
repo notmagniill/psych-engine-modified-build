@@ -130,6 +130,11 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 			['None', 'Tea Time', 'Breakfast', 'Breakfast (Pico)']);
 		addOption(option);
 		option.onChange = onChangePauseMusic;
+
+		var option:Option = new Option('Window Bar Mode:', "What mode should the window bar be?", 'windowBarMode', STRING,
+			['Dark', 'Light', 'Crimson', 'Sky', 'Olive', 'Lavender', 'Daisy']);
+		addOption(option);
+		option.onChange = onChangeWindowMode;
 		
 		#if CHECK_FOR_UPDATES
 		var option:Option = new Option('Check for Updates',
@@ -199,6 +204,35 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 		changedMusic = true;
 	}
 
+	function onChangeWindowMode()
+	{
+		switch (ClientPrefs.data.windowBarMode)
+		{
+			case 'Dark':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([0, 0, 0], true, true);
+			case 'Light':
+				WindowColorMode.setWindowColorMode(false);
+				WindowColorMode.setWindowBorderColor([255, 255, 255], true, true);
+			case 'Crimson':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([113, 21, 21], true, true);
+			case 'Sky':
+				WindowColorMode.setWindowColorMode(false);
+				WindowColorMode.setWindowBorderColor([111, 174, 206], true, true);
+			case 'Olive':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([27, 62, 0], true, true);
+			case 'Lavender':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([89, 0, 127], true, true);
+			case 'Daisy':
+				WindowColorMode.setWindowColorMode(false);
+				WindowColorMode.setWindowBorderColor([229, 221, 49], true, true);
+		}
+		ClientPrefs.saveSettings();
+	}
+
 	function onChangeNoteSkin()
 	{
 		notes.forEachAlive(function(note:StrumNote) {
@@ -221,7 +255,13 @@ class VisualsSettingsSubState extends BaseOptionsMenu
 
 	override function destroy()
 	{
-		if(changedMusic && !OptionsState.onPlayState) FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);
+		if (changedMusic && !OptionsState.onPlayState)
+		{
+			if (ClientPrefs.data.framerate == 69)
+				FlxG.sound.playMusic(Paths.music('not_like_us'), 1, true);
+			else
+				FlxG.sound.playMusic(Paths.music('freakyMenu'), 1, true);
+		}
 		super.destroy();
 	}
 

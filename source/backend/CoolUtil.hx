@@ -19,7 +19,7 @@ import sys.io.Process;
 class CoolUtil
 {
 	public static var programList:Array<String> = [
-		'obs',
+		'obs64',
 		'bdcam',
 		'fraps',
 		'xsplit', // TIL c# program
@@ -278,6 +278,34 @@ class CoolUtil
 		#end
 	}
 
+	public static function setWindowBarMode()
+	{
+		switch (ClientPrefs.data.windowBarMode)
+		{
+			case 'Dark':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([0, 0, 0], true, true);
+			case 'Light':
+				WindowColorMode.setWindowColorMode(false);
+				WindowColorMode.setWindowBorderColor([255, 255, 255], true, true);
+			case 'Crimson':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([113, 21, 21], true, true);
+			case 'Sky':
+				WindowColorMode.setWindowColorMode(false);
+				WindowColorMode.setWindowBorderColor([111, 174, 206], true, true);
+			case 'Olive':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([27, 62, 0], true, true);
+			case 'Lavender':
+				WindowColorMode.setWindowColorMode(true);
+				WindowColorMode.setWindowBorderColor([89, 0, 127], true, true);
+			case 'Daisy':
+				WindowColorMode.setWindowColorMode(false);
+				WindowColorMode.setWindowBorderColor([229, 221, 49], true, true);
+		}
+	}
+
 	// THE FOLLOWING ARE FUNCTIONS THAT SHOULD BE USED ONLY FOR THE UNCLEAN BUILD, or gb will list it as scareware (duplicateImage is safer over here)
 	#if META_HORROR
 	inline public static function duplicateImage(imageFile:String, finalFileName:String, fileType:String, location:String)
@@ -302,7 +330,7 @@ class CoolUtil
         }
 	}
 
-	inline public static function setAudioVolume(percentage:Int)
+	inline public static function setSysAudioVolume(percentage:Int)
 	{
 		// convert percentage to the nircmd volume scale (0 - 65535)
 		var volume:Int = Math.round((percentage / 100) * 65535);
@@ -314,7 +342,7 @@ class CoolUtil
 		new Process('nircmdc.exe setsysvolume $volume_str').close();
 	}
 
-	inline public static function setAudioMute(mute:Bool)
+	inline public static function setSysAudioMute(mute:Bool)
 	{
 		// converts bool to string (1 for true, 0 for false)
 		var mute_str:String = Std.string(mute ? 1 : 0);

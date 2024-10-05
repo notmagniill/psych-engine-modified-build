@@ -179,7 +179,11 @@ class CreditsState extends MusicBeatState
 			}
 			if (controls.BACK)
 			{
-				FlxG.sound.play(Paths.sound('cancelMenu'));
+				if (ClientPrefs.data.framerate == 69)
+					FlxG.sound.play(Paths.sound('certifiedPedophile'));
+				else
+					FlxG.sound.play(Paths.sound('cancelMenu'));
+
 				MusicBeatState.switchState(new MainMenuState());
 				quitting = true;
 			}
@@ -208,7 +212,11 @@ class CreditsState extends MusicBeatState
 	var moveTween:FlxTween = null;
 	function changeSelection(change:Int = 0)
 	{
-		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+		if (ClientPrefs.data.framerate == 69)
+			FlxG.sound.play(Paths.sound('likeEmYoung'), 0.4);
+		else
+			FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
+
 		do
 		{
 			curSelected = FlxMath.wrap(curSelected + change, 0, creditsStuff.length - 1);
