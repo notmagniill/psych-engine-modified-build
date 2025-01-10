@@ -34,6 +34,12 @@ class MusicBeatSubstate extends FlxSubState
 		updateCurStep();
 		updateBeat();
 
+		if (controls.justPressed('fullscreen'))
+		{
+			FlxG.fullscreen = !FlxG.fullscreen;
+			FlxG.save.data.fullscreen = !FlxG.save.data.fullscreen;
+		}
+
 		if (oldStep != curStep)
 		{
 			if(curStep > 0)

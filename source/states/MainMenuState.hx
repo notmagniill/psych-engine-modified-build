@@ -41,6 +41,8 @@ class MainMenuState extends MusicBeatState
 	var magenta:FlxSprite;
 	var camFollow:FlxObject;
 
+	var cooltex:FlxText;
+
 	override function create()
 	{
 		#if MODS_ALLOWED
@@ -114,6 +116,13 @@ class MainMenuState extends MusicBeatState
 		fnfVer.screenCenter(X);
 		fnfVer.setFormat("VCR OSD Mono", 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
 		add(fnfVer);
+		cooltex = new FlxText(12, 12, FlxG.width, "The following state could not be found! (FreeplayState)", 16);
+		cooltex.setFormat("VCR OSD Mono", 32, FlxColor.RED, LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+		cooltex.antialiasing = ClientPrefs.data.antialiasing;
+		cooltex.scrollFactor.set();
+		cooltex.alpha = 0;
+		add(cooltex);
+
 		changeItem();
 
 		#if ACHIEVEMENTS_ALLOWED
@@ -319,7 +328,7 @@ class MainMenuState extends MusicBeatState
 							case 'story_mode':
 								MusicBeatState.switchState(new StoryMenuState());
 							case 'freeplay':
-								MusicBeatState.switchState(new FreeplayState());
+								MusicBeatState.switchState(new MainMenuState());
 
 							#if MODS_ALLOWED
 							case 'mods':
@@ -355,6 +364,7 @@ class MainMenuState extends MusicBeatState
 				}
 				else CoolUtil.browserLoad('https://ninja-muffin24.itch.io/funkin');
 			}
+
 			#if desktop
 			if (controls.justPressed('debug_1'))
 			{
@@ -366,7 +376,7 @@ class MainMenuState extends MusicBeatState
 				}
 				else
 				{
-					if (!FileSystem.exists("./notes/FVBY MHBSA.paper"))
+					if (!FlxG.save.data.you_liar)
 						MusicBeatState.switchState(new MasterFakerState());
 					else
 						CoolUtil.crashGame('dHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \ndHJhaXRvcg==                    \n', 'aSBoYXRlIHlvdSByaWNoYXJkLg==');

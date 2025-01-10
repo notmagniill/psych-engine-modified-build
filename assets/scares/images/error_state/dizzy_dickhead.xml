@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="dizzy_dickhead.png">
+	<!-- Created with Adobe Animate version 24.0.4.28 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="mr im dizzy0000" x="0" y="0" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0001" x="330" y="0" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0002" x="660" y="0" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0003" x="990" y="0" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0004" x="1320" y="0" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0005" x="1650" y="0" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0006" x="0" y="306" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0007" x="330" y="306" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0008" x="660" y="306" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0009" x="990" y="306" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0010" x="1320" y="306" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0011" x="1650" y="306" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0012" x="0" y="612" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0013" x="330" y="612" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0014" x="660" y="612" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0015" x="990" y="612" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0016" x="1320" y="612" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0017" x="1650" y="612" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0018" x="0" y="918" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0019" x="330" y="918" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0020" x="660" y="918" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0021" x="990" y="918" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0022" x="1320" y="918" width="330" height="306"/>
+	<SubTexture name="mr im dizzy0023" x="0" y="0" width="330" height="306"/>
+	<SubTexture name="mr spilled ketchup0000" x="1650" y="918" width="330" height="306"/>
+</TextureAtlas>

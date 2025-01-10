@@ -154,7 +154,7 @@ class GameOverSubstate extends MusicBeatSubstate
 			{
 				endBullshit();
 			}
-			else if (controls.BACK)
+			/*else if (controls.BACK)
 			{
 				#if DISCORD_ALLOWED DiscordClient.resetClientID(); #end
 				FlxG.camera.visible = false;
@@ -167,11 +167,10 @@ class GameOverSubstate extends MusicBeatSubstate
 				if (PlayState.isStoryMode)
 					MusicBeatState.switchState(new StoryMenuState());
 				else
-					MusicBeatState.switchState(new FreeplayState());
-	
-				FlxG.sound.playMusic(Paths.music('freakyMenu'));
+										MusicBeatState.switchState(new FreeplayState());
+							// FlxG.sound.playMusic(Paths.music('freakyMenu'));
 				PlayState.instance.callOnScripts('onGameOverConfirm', [false]);
-			}
+			}*/
 			else if (justPlayedLoop)
 			{
 				switch(PlayState.SONG.stage)
@@ -232,7 +231,7 @@ class GameOverSubstate extends MusicBeatSubstate
 				FlxG.camera.fade(FlxColor.BLACK, 2, false, function()
 				{
 					if (PlayState.SONG.song.toLowerCase() == 'monster')
-						MusicBeatState.switchState();
+						MusicBeatState.switchState(new scares.EmergencyAlertSystem());
 					else
 						MusicBeatState.resetState();
 				});

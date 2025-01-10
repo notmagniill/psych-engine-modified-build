@@ -1,22 +1,19 @@
 package backend;
 
-import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
-import flixel.graphics.frames.FlxAtlasFrames;
+import flash.media.Sound;
 import flixel.graphics.FlxGraphic;
+import flixel.graphics.frames.FlxAtlasFrames;
+import flixel.graphics.frames.FlxFrame.FlxFrameAngle;
 import flixel.math.FlxRect;
 import flixel.system.FlxAssets;
-
+import haxe.Json;
+import lime.utils.Assets;
 import openfl.display.BitmapData;
 import openfl.display3D.textures.RectangleTexture;
+import openfl.geom.Rectangle;
+import openfl.system.System;
 import openfl.utils.AssetType;
 import openfl.utils.Assets as OpenFlAssets;
-import openfl.system.System;
-import openfl.geom.Rectangle;
-
-import lime.utils.Assets;
-import flash.media.Sound;
-
-import haxe.Json;
 
 
 #if MODS_ALLOWED
@@ -188,6 +185,11 @@ class Paths
 	public static function imageString(key:String, parentFolder:String = 'shared'):String
 	{
 		return getPath('images/$key.png', IMAGE, parentFolder);
+	}
+
+	inline static public function gif(key:String, ?folder:String)
+	{
+		return getPath('gifs/$key.gif', BINARY, folder, true);
 	}
 
 	public static function soundString(key:String, parentFolder:String = 'shared'):String

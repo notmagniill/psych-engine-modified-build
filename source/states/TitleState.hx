@@ -50,6 +50,8 @@ class TitleState extends MusicBeatState
 
 	var wackyImage:FlxSprite;
 
+	var nomorezoom:Bool;
+
 	#if TITLE_SCREEN_EASTER_EGG
 	var easterEggKeys:Array<String> = [
 		'SHADOW', 'RIVEREN', 'BBPANZU'
@@ -140,6 +142,8 @@ class TitleState extends MusicBeatState
 		{
 			StoryMenuState.weekCompleted = FlxG.save.data.weekCompleted;
 		}
+
+		nomorezoom = false;
 
 		FlxG.mouse.load(Paths.image('cursor').bitmap);
 		Achievements.unlock('save_me', false);
@@ -526,6 +530,13 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
+		if (!nomorezoom)
+		{
+			FlxG.camera.zoom += 0.025;
+
+			FlxTween.tween(FlxG.camera, {zoom: 1}, Conductor.crochet / 1200, {ease: FlxEase.quadOut});
+		}
+
 		if(logoBl != null)
 			logoBl.animation.play('bump', true);
 
@@ -662,6 +673,8 @@ class TitleState extends MusicBeatState
 				#end
 			}
 			skippedIntro = true;
+			nomorezoom = true;
+			FlxG.camera.zoom = 1;
 		}
 	}
 }

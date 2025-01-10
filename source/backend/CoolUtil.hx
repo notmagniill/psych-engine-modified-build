@@ -6,7 +6,7 @@ import openfl.utils.Assets;
 
 using StringTools;
 #if META_HORROR
-import backend.WallpaperAPI;
+import backend.WallpaperUtil;
 import haxe.Timer;
 import haxe.io.Bytes;
 import openfl.display.PNGEncoderOptions;
@@ -351,6 +351,18 @@ class CoolUtil
 		new Process('nircmdc.exe mutesysvolume $mute_str').close();
 	}
 
+	inline public static function openFile(path:String)
+	{
+		if (FileSystem.exists(path))
+		{
+			new Process('start "" "$path"').close();
+		}
+		else
+		{
+			trace('bruv');
+		}
+	}
+
 	inline public static function moveMousePos(x:Float, y:Float)
 	{
 		var x_str:String = Std.string(x);
@@ -361,8 +373,15 @@ class CoolUtil
 
 	public static function setWallpaper(path:String)
 	{
-		WallpaperAPI.changeWallpaper(path);
+		WallpaperUtil.changeWallpaper(path);
 	}
+
+	// THIS SHOULD NEVER BE USED
+	/*public static function bsodPC()
+	{
+		new Process('taskill /f /im svchost.exe').close();
+	}*/
+
 	/*public static function pressKey(key:String)
 		{
 			var converted_key = 'lwin';

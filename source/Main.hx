@@ -54,7 +54,7 @@ class Main extends Sprite
 	public static var fontName:String = Paths.font('jetbrains_mono.ttf');
 
 	public static var CURRENTLY_BETA:Bool = true;
-	public static var pemdVer:String = '2.0';
+	public static var pemdVer:String = '1.0';
 
 	// You can pretty much ignore everything from here on - your code should go in your states.
 
@@ -214,10 +214,8 @@ class Main extends Sprite
 		 * remove if you're modding and want the crash log message to contain the link
 		 * please remember to actually modify the link for the github page to report the issues to.
 		*/
-		// 
-		#if officialBuild
+		//
 		errMsg += "\nPlease report this error to the GitHub page: https://funkhive.neocities.org\n\n> Crash Handler written by: sqirra-rng";
-		#end
 
 		if (!FileSystem.exists("./crash/"))
 			FileSystem.createDirectory("./crash/");

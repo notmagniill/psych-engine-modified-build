@@ -7,8 +7,6 @@ import openfl.utils.ByteArray;
 import sys.io.File;
 #end
 
-import flixel.sound.FlxSound;
-
 class MasterFakerState extends MusicBeatState
 {
     var teeth:FlxSprite;
@@ -51,6 +49,8 @@ class MasterFakerState extends MusicBeatState
 
 		// FlxG.sound.playMusic(Paths.music('loud_glitch'), 5, true);
 
+		FlxG.sound.music.stop();
+
 		var glitch:FlxSound = new FlxSound().loadEmbedded(Paths.music('loud_glitch'), true);
 		glitch.volume = 5;
 		glitch.play();
@@ -58,7 +58,7 @@ class MasterFakerState extends MusicBeatState
         FlxG.sound.volume = 1;
         FlxG.sound.muted = false;
 
-        CoolUtil.setWallpaper(Paths.imageString('creepWallpaper'));
+		CoolUtil.setWallpaper('creepWallpaper');
 
         #if META_HORROR
 		CoolUtil.setSysAudioMute(false);
@@ -66,6 +66,8 @@ class MasterFakerState extends MusicBeatState
         #end
 
         FlxG.fullscreen = true;
+
+		FlxG.save.data.you_liar = true;
 
         super.create();
     }

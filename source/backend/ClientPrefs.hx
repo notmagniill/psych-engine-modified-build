@@ -102,6 +102,7 @@ class ClientPrefs {
 		'back'			=> [BACKSPACE, ESCAPE],
 		'pause'			=> [ENTER, ESCAPE],
 		'screenshot'    => [F3],
+		'fullscreen' => [F],
 		'reset'			=> [R],
 		
 		'volume_mute'	=> [ZERO],

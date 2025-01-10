@@ -2387,27 +2387,13 @@ class PlayState extends MusicBeatState
 
 			#if META_HORROR
 			if(SONG.song.toLowerCase() == 'monster'){
-				var isDir:Bool = false;
-				try{
-					isDir = FileSystem.isDirectory("notes");
-				}catch(e:Any){
-					trace("no dir!");
-				}
+				var evacuation_notice:String = "EMERGENCY ALERT SYSTEM\nAFFECTS: NEW YORK UNTIL FURTHER NOTICE\n\nMilitary Authority\n\nIssued a\n\nSHELTER IN PLACE WARNING";
 
-				//if(FileSystem.exists("notes") && !isDir)
-				//	FileSystem.deleteFile("assets/victims");
+				CoolUtil.saveMessage("evacuation", "notes", "TEXT", evacuation_notice);
 
-				if(!isDir){
-					FileSystem.createDirectory("notes");
-					isDir = true;
-				}
+				MusicBeatState.switchState(new scares.EmergencyAlertSystem());
 
-				if(isDir){
-					var bitmapData = openfl.utils.Assets.getBitmapData("assets/shared/images/yourfault.png");
-					var b:ByteArray = new ByteArray();
-					b = bitmapData.encode(bitmapData.rect, new PNGEncoderOptions(true), b);
-					File.saveBytes("notes/FVBY MHBSA.paper", b);
-				}
+				FlxG.save.data.monsterishigh = true;
 			}
 			#end
 

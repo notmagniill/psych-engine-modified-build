@@ -1,5 +1,7 @@
 package states.stages;
 
+import flixel.FlxBasic;
+
 class Spooky extends BaseStage
 {
 	var halloweenBG:BGSprite;
@@ -22,6 +24,8 @@ class Spooky extends BaseStage
 		{
 			switch(songName)
 			{
+				case 'spookeez':
+					setStartCallback(spookeezCutscene);
 				case 'monster':
 					setStartCallback(monsterCutscene);
 			}
@@ -78,6 +82,55 @@ class Spooky extends BaseStage
 			FlxTween.tween(halloweenWhite, {alpha: 0.5}, 0.075);
 			FlxTween.tween(halloweenWhite, {alpha: 0}, 0.25, {startDelay: 0.15});
 		}
+	}
+
+	function spookeezCutscene()
+	{
+		inCutscene = true;
+		camHUD.visible = false;
+
+		FlxG.camera.focusOn(new FlxPoint(dad.getMidpoint().x + 150, dad.getMidpoint().y - 100));
+
+		// character anims
+		FlxG.sound.play(Paths.soundRandom('thunder_', 1, 2));
+		if (gf != null)
+			gf.playAnim('scared', true);
+		boyfriend.playAnim('scared', true);
+		if (FlxG.save.data.monsterishigh)
+		{
+			dad.visible = gf.visible = boyfriend.visible = false;
+		}
+
+		var cluster:FlxSprite = new FlxSprite(250, 500).loadGraphic(Paths.image('monster cluster'));
+		cluster.antialiasing = true;
+		cluster.scrollFactor.set();
+		if (FlxG.save.data.monsterishigh)
+			cluster.visible = true;
+		else
+			cluster.visible = false;
+
+		add(cluster);
+
+		// white flash
+		var whiteScreen:FlxSprite = new FlxSprite().makeGraphic(Std.int(FlxG.width * 2), Std.int(FlxG.height * 2), FlxColor.WHITE);
+		whiteScreen.scrollFactor.set();
+		whiteScreen.blend = ADD;
+		add(whiteScreen);
+		FlxTween.tween(whiteScreen, {alpha: 0}, 1, {
+			startDelay: 0.1,
+			ease: FlxEase.linear,
+			onComplete: function(twn:FlxTween)
+			{
+				remove(whiteScreen);
+				whiteScreen.destroy();
+
+				camHUD.visible = true;
+				if (!boyfriend.visible)
+					throw "Null Object Reference";
+				else
+					startCountdown();
+			}
+		});
 	}
 
 	function monsterCutscene()
