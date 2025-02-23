@@ -12,7 +12,7 @@ Released on 24 November 2022, the engine was a big hit in the Friday Night Funki
 
 Shortly after a few months, the engine suddenly disappeared and was announced discontinued in 24 July 2023 as it was called "outdated".
 
-We at Team Magniill are dedicated to restore this piece of history and are excited to let the community relive the hype of this mod's release.
+We at Team Magniill and PARAware are dedicated to restore this piece of history and are excited to let the community relive the hype of this mod's release.
 
 **Let us decipher why is this mod discontinued, what made this mod get discontinued and ~~what is it trying to tell us~~.**
 
