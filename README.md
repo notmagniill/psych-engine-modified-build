@@ -31,12 +31,11 @@ We at Team Magniill and PARAware are dedicated to restore this piece of history 
 ## Special Thanks
 * Psych Engine Developers and Contributors (Scroll down to view Psych Engine Developers credits)
 
+## Building
+Refer to [the Build Instructions](./BUILDING.md)
+
 # Friday Night Funkin' - Psych Engine
 Engine originally used on [Mind Games Mod](https://gamebanana.com/mods/301107), intended to be a fix for the vanilla version's many issues while keeping the casual play aspect of it. Also aiming to be an easier alternative to newbie coders.
-
-## Installation:
-
-Refer to [the Build Instructions](./BUILDING.md)
 
 ## Customization:
 
