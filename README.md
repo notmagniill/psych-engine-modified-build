@@ -25,6 +25,7 @@ We at Team Magniill are dedicated to restore this piece of history and are excit
 * ▉▉▉▉▉▉▉▉▉▉ (notmagniill) - Main Code/Art/Animation Restorer
 * Scott (SMB-5) - Code Restorer
 * ▉▉▉▉▉▉▉▉▉▉ (JabaNSL) - Main Music Restorer
+
 (To those who didn't get credited, please message me so that I can add your name in!)
 
 ## Special Thanks
