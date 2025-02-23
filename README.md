@@ -24,6 +24,8 @@ We at Team Magniill are dedicated to restore this piece of history and are excit
 ### Restoration Team (Team Magniill)
 * ▉▉▉▉▉▉▉▉▉▉ (notmagniill) - Main Code/Art/Animation Restorer
 * Scott (SMB-5) - Code Restorer
+* ▉▉▉▉▉▉▉▉▉▉ (JabaNSL) - Main Music Restorer
+(To those who didn't get credited, please message me so that I can add your name in!)
 
 ## Special Thanks
 * Psych Engine Developers and Contributors (Scroll down to view Psych Engine Developers credits)
